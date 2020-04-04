@@ -1,154 +1,79 @@
 <!DOCTYPE HTML>
+<html>
 <head>
-<meta char="UTF-8">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="stepper.js" charset="utf-8"></script>
-<style>
-    div {
-        display: block;
-    }
-    .site-header {
-        display: flex;
-        position: fixed;
-        width: 100%;
-    }
-    .right {
-        margin: 0 0 0 90%;
-    }
-  body {
-    background: #eeeeee;
-    font-family: Meiryo;
-  }
-  ul{
-    width: 680px;
-    list-style: none outside;
-　}
-    li{
-        padding: 10;
-        float: left;
-        width: 340px;
-    }
-  .itemImage {
-      width : 100%;
-  }
-.btn-circle-flat {
-  display: inline-block;
-  text-decoration: none;
-  background: #87befd;
-  color: #FFF;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  transition: .4s;
-}
-
-.btn-circle-flat:hover {
-  background: #668ad8;
-}
- .dismiss {
-     width: 100%
-      border: 1px solid #000000;
-  }
-.btnspinner{
-    -ms-user-select: none;
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-.spinner_area { 
-    margin-left: 20px;
-}
-.spinner_area input{
-    text
-    padding: 11px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 18px;
-    width: auto;
-    vertical-align: middle;
-    /* デフォルトのスピナーを消す */
-    -webkit-appearance: none;
-    -moz-appearance:textfield;
-}
-
-.spinner_area input[type="button"]{
-    cursor: pointer;
-}
-</style>
-<title>ジョージのおやつ 予約</title>
+    <meta char="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/stepper.js" charset="utf-8"></script>
+    <title>ジョージのおやつ 予約</title>
 </head>
 <body>
-    <div>
-        <header class="site-header">
-                <a href="#" class="btn-circle-flat right">X</a>
-        </header>
-    </div>
-    <div>
-        <h2>今週のラインナップ</h2>
-        <div>
-            <ul class = "menu">
-                <li class="item">
-                    <h4 class="itemName">
-                        <div>チーズケーキ</div>
-                    </h4>
-                    <div class="itemFee">￥400</div>
+
+    <div class="container">
+        <h1>ジョージのおやつ<br>宅配 予約</h1>
+        <h2>今週の商品ラインナップ</h2>
+        <div class="form-group">
+            <ul class="menu">
+                <li class="item" id="menuItem1">
+                    <h3 class="itemName">
+                        チーズケーキ
+                    </h3>
+                    <div class="itemPrice">￥400</div>
                     <div class="itemImage">
                         <img alt="チーズケーキ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1566985/986630_933113.jpeg" class="itemImage">
                     </div>
                     <div class="spinner_area">
-                        <input type="number" value="0" class="counter1" data-max="500" data-min="0">
-                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter1">
                         <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter1">
+                        <input type="number" value="0" class="counter counter1" data-max="500" data-min="0">
+                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter1">
                     </div>
                 </li>
-                <li class="item">
-                    <h4 class="itemName">
-                        <div>カヌレ</div>
-                    </h4>
-                    <div class="itemFee">￥150</div>
+                <li class="item" id="menuItem2">
+                    <h3 class="itemName">
+                        カヌレ
+                    </h3>
+                    <div class="itemPrice">￥150</div>
                     <div class="itemImage">
                         <img alt="カヌレ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1566985/173748_62248.jpeg" class="itemImage">
                     </div>
                     <div class="spinner_area">
-                        <input type="number" value="0" class="counter2" data-max="500" data-min="0">
-                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter2">
                         <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter2">
+                        <input type="number" value="0" class="counter counter2" data-max="500" data-min="0">
+                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter2">
                     </div>
                 </li>
-                <li class="item">
-                    <h4 class="itemName">
-                        <div>かぼちゃとチャイのシフォン</div>
-                    </h4>
-                    <div class="itemFee">￥350</div>
+                <li class="item" id="menuItem3">
+                    <h3 class="itemName">
+                        かぼちゃとチャイのシフォン
+                    </h3>
+                    <div class="itemPrice">￥350</div>
                     <div class="itemImage">
                         <img alt="かぼちゃとチャイのシフォン" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1566985/752738_349450.jpeg" class="itemImage">
                     </div>
                     <div class="spinner_area">
-                        <input type="number" value="0" class="counter3" data-max="500" data-min="0">
-                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter3">
                         <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter3">
+                        <input type="number" value="0" class="counter counter3" data-max="500" data-min="0">
+                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter3">
                     </div>
                 </li>
-                <li class="item">
-                    <h4 class="itemName">
-                        <div>抹茶のシフォン</div>
-                    </h4>
-                    <div class="itemFee">￥350</div>
+                <li class="item" id="menuItem4">
+                    <h3 class="itemName">
+                        抹茶のシフォン
+                    </h3>
+                    <div class="itemPrice">￥350</div>
                     <div class="itemImage">
                         <img alt="抹茶のシフォン" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_1440,w_720,f_auto,q_auto/1566985/242331_170618.jpeg" class="itemImage">
                     </div>
                     <div class="spinner_area">
-                        <input type="number" value="0" class="counter4" data-max="500" data-min="0">
-                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter4">
                         <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter4">
+                        <input type="number" value="0" class="counter counter4" data-max="500" data-min="0">
+                        <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter4">
                     </div>
                 </li>
-          </ul>
-      </div>
-  </div>
+            </ul>
+        </div>
+        <div class="next-btn">次へ</div>
+    </div>
 </body>
 </html>
