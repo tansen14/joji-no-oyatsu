@@ -46,7 +46,7 @@ ul{
 
 .item {
     width:  47.5%;
-    border: black 1px solid;
+    border: #ebf0ee 1px solid;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -94,6 +94,7 @@ ul{
 }
 
 .spinner_area input[type="number"]{
+    border-color: #6ffcd2;
     text-align: center;
     width: 50%;
     flex-grow: 6;
@@ -101,6 +102,7 @@ ul{
 }
 
 .spinner_area input[type="button"]{
+    border-color: #6ffcd2;
     cursor: pointer;
     flex-grow: 2;
     flex-shrink: 4;
