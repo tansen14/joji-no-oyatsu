@@ -1,3 +1,4 @@
+
 var myForm = document.getElementById('inputForm');
 myForm.addEventListener('submit', function(event) {
   event.preventDefault();
