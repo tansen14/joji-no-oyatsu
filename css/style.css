@@ -7,9 +7,10 @@ html {
     height: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 body {
-    background: #eeeeee;
-    font-family: Meiryo;
+    background: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -106,8 +107,16 @@ ul{
 }
 
 .next-btn {
-    padding: 0 10px;
+    text-decoration:  none;             /* デフォルトCSS打ち消し */
+    width: 300px;                       /* 幅指定 */
+    padding: 0 15px;
     font-size: 24px;
+    padding: 15px;                      /* 余白指定 */
+    border-radius:  5px;                /* 角丸指定 */
+    background-color: #00BCD4;          /* 背景色指定 */
+    color: #fff;                        /* 文字色指定 */
+    box-shadow: 0 2px 10px 0 #9E9E9E;   /* 影指定 */
+    display: block;                     /* ブロック要素にする */
     display: flex;
     flex-direction: row-reverse;
 }
