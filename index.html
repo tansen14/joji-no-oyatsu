@@ -7,6 +7,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/stepper.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
     <title>ジョージのおやつ 予約</title>
 </head>
 <body>
@@ -46,7 +47,7 @@
                     </li>
                     <li class="item" id="menuItem3">
                         <h3 class="itemName">
-                            チーズケーキ
+                            チーズケーキ(1/8カット)
                         </h3>
                         <div class="itemPrice">￥350( + 税)</div>
                         <div class="itemImage">
@@ -74,7 +75,7 @@
                     </li>
                     <li class="item" id="menuItem5">
                         <h3 class="itemName">
-                            イチゴのタルト
+                            イチゴのタルト(1/8カット)
                         </h3>
                         <div class="itemPrice">￥350( + 税)</div>
                         <div class="itemImage">
@@ -102,7 +103,7 @@
                     </li>
                     <li class="item" id="menuItem7">
                         <h3 class="itemName">
-                            桜あんと生クリームのタルト
+                            桜あんと生クリームのタルト(1/8カット)
                         </h3>
                         <div class="itemPrice">￥350( + 税)</div>
                         <div class="itemImage">
@@ -144,19 +145,46 @@
                     </li>
                 </ul>
             </div>
-            <div class="form-group" id="date">
-                <p>日付</p>
+            <hr />
+            <div class="form-group">
+                <form id="myForm" method="get">
+                      <p>
+                        <label>メールアドレス：
+                            <input type="email" name="emailN" autocomplete="email" placeholder="ex) addr@sample.co.jp" required>
+                        </label>
+                      </p>
+                      <p>
+                            <label>電話番号：<input type="tel" name="tel" size="12" maxlength="20" autocomplete="tel"></label>
+                      </p>
+                      <p>
+                          <label>日付：
+                                <input type="date" name="dateN" min="2020-04-08" max="2020-04-12" required>
+                          </label>
+                      </p>
+                      <p>
+                          <label>時間：
+                                <input type="time" name="timeN" step="1800" value="10:00" min="10:00" max="19:00" required>
+                          </label>
+                      </p>
+                      <p>
+                          情報を保存しますか？：
+                          <label><input type="radio" name="radioN" value="join" checked>する</label>
+                          <label><input type="radio" name="radioN" value="abstention">しない</label>
+                      </p>
+                      <button class="next-btn" id="button" type="submit">予約する</button>
+                </form>
+                <hr />
+                <p>フォームの送信値は次の通りです。</p>
+                <ul class="result">
+                </ul>
+                <table border="1">
+                  <tr>
+                        <th>Type</th><th>Name</th><th>Value</th>
+                  </tr>
+                  <tbody id="list">
+                  </tbody>
+                </table>
             </div>
-            <div class="form-group" id="time">
-                <p>時間</p>
-            </div>
-            <div class="form-group" id="address">
-                <p>住所</p>
-            </div>
-            <div class="form-group" id="phone">
-                <p>電話</p>
-            </div>
-            <div class="next-btn">予約する</div>
         </form>
     </div>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js" type="text/javascript"></script>
