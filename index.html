@@ -221,17 +221,12 @@
                           <label><input type="radio" name="radioN" value="abstention">しない</label>
                       </p> -->
                       <button class="next-btn btn btn-info mx-auto d-block" id="button" type="submit">予約する</button>
+                      <!--計算処理　税込み合計料金-->
+                      <input type="button" value="Check" onclick="caluculate()">
                 </form>
                 <hr />
                 <p>フォームの送信値は次の通りです。</p>
-                <ul class="result">
-                </ul>
-                <table border="1">
-                  <tr>
-                        <th>Type</th><th>Name</th><th>Value</th>
-                  </tr>
-                  <tbody id="list">
-                  </tbody>
+                <div id="edit_area"></div>
                 </table>
             </div>
         </form>
@@ -241,5 +236,6 @@
     <!-- 郵便番号から住所自動入力 -->
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/Caluculate.js"></script>
 </body>
 </html>
