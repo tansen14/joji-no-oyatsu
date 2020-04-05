@@ -42,7 +42,7 @@ submit.addEventListener('click', () => {
 
   // 裏に用意したGoogleFormにajax非同期通信で値を送信する
   $.ajax({
-    url: 'https://docs.google.com/forms/d/e/"ここにフォームのID"/formResponse',
+    url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSecxIXt5tU5tlNYSB4iUlx5uoQ_V65oqyAf5Aj0F56lWvIvXA/formResponse',
     data: {
       'entry.1353680214': lineId,             // lINE ID
       'entry.1235356053': displayName,        // 表示名
