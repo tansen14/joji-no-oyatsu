@@ -147,23 +147,52 @@
             </div>
             <hr />
             <div class="form-group">
-                <form id="myForm" method="get">
-                      <p>
-                        <label>メールアドレス：
-                            <input type="email" name="emailN" autocomplete="email" placeholder="ex) addr@sample.co.jp" required>
-                        </label>
-                      </p>
-                      <p>
-                            <label>電話番号：<input type="tel" name="tel" size="12" maxlength="20" autocomplete="tel"></label>
-                      </p>
+                <form id="inputForm" method="get">
+                    <!--Eメール-->
+                    <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Eメール</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Eメール" required>
+                            <div class="invalid-feedback">入力してください</div>
+                        </div>
+                    </div>
+                    <!--/Eメール-->
+                    <!--電話番号-->
+                    <div class="form-group row">
+                        <label for="inputPhone" class="col-sm-2 col-form-label">電話番号</label>
+                        <div class="col-sm-10">
+                            <input type="phone" class="form-control" id="inputPhone" placeholder="電話番号" required>
+                            <div class="invalid-feedback">入力してください</div>
+                        </div>
+                    </div>
+                    <!--/電話番号-->
+                    <!--住所-->
+                    <div class="form-row">
+                        <div class="col-md-3 mb-5">
+                            <label for="inputAddress01">郵便番号(7桁)</label>
+                            <input type="text" name="zip01" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','pref01','addr01');" class="form-control" id="inputAddress01" placeholder="1030013" required>
+                            <div class="invalid-feedback">入力してください</div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputAddress02">都道府県</label>
+                            <input type="text" name="pref01" id="inputAddress02" class="form-control" placeholder="東京都" required>
+                            <div class="invalid-feedback">入力してください</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputAddress03">住所</label>
+                            <input type="text" name="addr01" class="form-control" id="inputAddress03" placeholder="中央区日本橋人形町" required>
+                            <div class="invalid-feedback">入力してください</div>
+                        </div>
+                    </div>
+                    <!--/住所-->
                       <p>
                           <label>日付：
-                                <input type="date" name="dateN" min="2020-04-08" max="2020-04-12" required>
+                                <input type="date" name="dateN" min="2020-04-13" max="2020-04-15" required>
                           </label>
                       </p>
                       <p>
                           <label>時間：
-                                <input type="time" name="timeN" step="1800" value="10:00" min="10:00" max="19:00" required>
+                                <input type="time" name="timeN" step="1800" value="11:00" min="11:00" max="18:00" required>
                           </label>
                       </p>
                       <p>
@@ -190,6 +219,8 @@
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+    <!-- 郵便番号から住所自動入力 -->
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
