@@ -18,12 +18,19 @@ function getProfile(){
   });
 }
 
-// 結果送信ボタン
-const submit = document.getElementById('submit');
+function onSubmitBtn() {
+  // 結果送信ボタン
+  const submitBtn = document.getElementById('submit-btn');
 
-// クリックイベントを付与
-submit.addEventListener('click', () => {
-  // TODO inputの必須条件をクリアしているかチェック
+  event.stopPropagation();
+  // イベントキャンセル
+  event.preventDefault();
+  alert("test");
+
+  // 送信確認表を表示
+  result();
+  // 計算処理　税込み合計料金
+  caluculate();
 
   const year = 2020;
   const month = 4;
@@ -35,10 +42,13 @@ submit.addEventListener('click', () => {
   const phone = "090-1234-5678";
   // itemの個数の配列
   const items = document.getElementsByName('counter');
-  
+
   // 確認事項を表示
   const confirm = document.getElementById('confirm');
   confirm.style.display = "block";
+  pageScroll()
+
+
 
 
   // 裏に用意したGoogleFormにajax非同期通信で値を送信する
@@ -55,16 +65,15 @@ submit.addEventListener('click', () => {
       'entry.545868401': mail,                // メールアドレス
       'entry.775530315': address,             // 住所
       'entry.1315798513': phone,              // 電話番号
-      'entry.12472245': items[0].value,             // ジョージのおやつHAPPY BOX
-      'entry.1191119162': items[1].value,           // カヌレ
-      'entry.1553621218': items[2].value,           // チーズケーキ
-      'entry.1263452350': items[3].value,           // アップルパイ
-      'entry.1119774577': items[4].value,           // イチゴのタルト
-      'entry.786743653': items[5].value,            // クッキーシュー
-      'entry.494953515': items[6].value,            // 桜あんと生クリームのタルト
-      'entry.1487205902': items[7].value,           // 生ガトーショコラ
-      'entry.1658252972': items[8].value,           // レモンケーキ
-
+      'entry.12472245': items[0].value,       // ジョージのおやつHAPPY BOX
+      'entry.1191119162': items[1].value,     // カヌレ
+      'entry.1553621218': items[2].value,     // チーズケーキ
+      'entry.1263452350': items[3].value,     // アップルパイ
+      'entry.1119774577': items[4].value,     // イチゴのタルト
+      'entry.786743653': items[5].value,      // クッキーシュー
+      'entry.494953515': items[6].value,      // 桜あんと生クリームのタルト
+      'entry.1487205902': items[7].value,     // 生ガトーショコラ
+      'entry.1658252972': items[8].value,     // レモンケーキ
     },
     type: 'POST',
     datatype: 'xml',
@@ -86,4 +95,5 @@ submit.addEventListener('click', () => {
       }
     }
   })
-});
+
+}
