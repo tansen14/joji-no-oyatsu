@@ -170,7 +170,7 @@
             <div class="form-row">
                 <div class="col-md-3 mb-5">
                     <label for="inputAddress01">郵便番号(7桁)</label>
-                    <input type="text" name="zip01" maxlength="8" onkeyup="AjaxZip3.zip2addr(this,'','pref01','addr01');" class="form-control" id="inputAddress01" placeholder="1030013" required>
+                    <input type="text" name="zip01" maxlength="8" onkeyup="AjaxZip3.zip2addr(this,'','pref01','addr01');" class="form-control" id="inputAddress01" placeholder="0368096" required>
                     <div class="invalid-feedback">入力してください</div>
                 </div>
                 <div class="col-md-3">
@@ -190,7 +190,7 @@
             <div class="form-group row">
                 <label  class="col-sm-2 col-form-label">日付</label>
                 <div class="col-sm-10">
-                    <input type="date" name="dateN" class="form-control" min="2020-04-13" max="2020-04-15" required>
+                    <input type="date" name="dateN" class="form-control" min="2020-04-13" max="2020-04-15" value="2020-04-13" required>
                 </div>
             </div>
             <!--/日付-->
@@ -201,13 +201,7 @@
                         <input type="time" name="timeN" class="form-control" step="1800" value="11:00" min="11:00" max="18:00" required>
                 </div>
                 <!--/時間-->
-                <!--<p>
-                    情報を保存しますか？：
-                    <label><input type="radio" name="radioN" value="join" checked>する</label>
-                    <label><input type="radio" name="radioN" value="abstention">しない</label>
-                </p> -->
             </div>
-            <!--計算処理　税込み合計料金-->
             <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">予約する</button>
         </form>
 
@@ -221,13 +215,7 @@
         <div id="confirm" style="display: none;">
             <hr />
             <p>こちらでよろしいですか？</p>
-            <table border="1">
-                <tr>
-                    <th>商品名</th><th>Name</th><th>Value</th>
-                </tr>
-                <tbody id="list">
-                </tbody>
-            </table>
+            <!--計算処理　税込み合計料金-->
             <div id="edit_area"></div>
         </div>
         <!-- ↑↑ここまでを修正！↑↑ -->
