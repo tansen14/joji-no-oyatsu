@@ -148,6 +148,12 @@
                 </ul>
             </div>
             <hr />
+            <div class="form-group row">
+                <label class="col-12 col-form-label">合計料金(税抜)</label>
+                <div class="col-12">
+                    <input id="totalFeeOutTax" class="form-control" type="text" placeholder="¥0" readonly>
+                </div>
+            </div>
             <!--電話番号-->
             <div class="form-group row">
                 <label for="inputPhone" class="col-12 col-form-label">電話番号</label>
@@ -210,7 +216,7 @@
             <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">予約する</button>
         </form>
             <!-- 切り替えボタンの設定 -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="modal_display_button">
               ココを押すと表示
             </button>
 
@@ -227,46 +233,30 @@
                   <div class="modal-body">
                     <ul class="list-group list-group-horizontal">
                       <li class="list-group-item flex-fill col-4 text-center">名前</li>
-                      <li class="list-group-item flex-fill col-8">リスト2</li>
+                      <li class="list-group-item flex-fill col-8" id="user_name">リスト2</li>
                     </ul>   
                     <ul class="list-group list-group-horizontal">
                       <li class="list-group-item flex-fill col-4 text-center">電話番号</li>
-                      <li class="list-group-item flex-fill col-8 ">リスト2</li>
+                      <li class="list-group-item flex-fill col-8 " id="user_tel">リスト2</li>
                     </ul>
                     <ul class="list-group list-group-horizontal">
                       <li class="list-group-item flex-fill col-4 text-center">住所</li>
-                      <li class="list-group-item flex-fill col-8 ">リスト2</li>
+                      <li class="list-group-item flex-fill col-8" id="user_address">リスト2</li>
                     </ul>   
-                    <table class="table">
-                      <thead class="thead-light">
-                        <tr>
-                        <th>#</th>
-                        <th scope="col">商品名</th>
-                        <th scope="col">数量</th>
-                        <th scope="col">小計</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>チーズケーキ</td>
-                          <td>1</td>
-                          <td>¥300</td>
-                        </tr>
-                    　 <tr>
-                          <th scope="row">2</th>
-                          <td>チーズケーキ</td>
-                          <td>1</td>
-                          <td>¥300</td>
-                        </tr>
-                        <tr>
-                          <th scope="row"></th>
-                          <td></td>
-                          <td class="font-weight-bolder">合計</td>
-                          <td>¥1,600</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div>
+                        <table class="table">
+                          <thead class="thead-light">
+                            <tr>
+                            <th>#</th>
+                            <th scope="col">商品名</th>
+                            <th scope="col">数量</th>
+                            <th scope="col">小計</th>
+                            </tr>
+                          </thead>
+                          <!-- 購入する商品情報に沿ってtbody作成 -->
+                          <tbody id="modal_itemlist"></tbody>
+                        </table>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
