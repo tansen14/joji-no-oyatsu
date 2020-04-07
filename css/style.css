@@ -108,6 +108,15 @@ ul{
     flex-shrink: 4;
 }
 
+.inputAddress01 > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputAddress01 label {
+    flex: 1;
+}
+
 .next-btn {
     text-decoration:  none;             /* デフォルトCSS打ち消し */
     width: 300px;                       /* 幅指定 */
