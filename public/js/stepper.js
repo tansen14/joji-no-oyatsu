@@ -45,7 +45,7 @@ $(function(){
         }else{
             target.val(num);
         }
-        show_sum();
+        sum_show();
     }
-    
+
 });

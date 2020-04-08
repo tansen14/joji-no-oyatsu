@@ -1,7 +1,7 @@
 /*商品情報*/
 const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
 const itemFeeInTax = [900, 162, 378, 216, 378, 162, 378, 367, 324];
-const itemFeeWithoutTax = [834, 150, 378, 216, 378, 162, 378, 367, 324];
+const itemFeeWithoutTax = [834, 150, 350, 200, 350, 150, 350, 340, 300];
 
 function accountCaluculate() {
     
@@ -22,30 +22,30 @@ function getValue() {
 	 $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeWithoutTax = itemFeeWithoutTax[index] * qty;
-        totalValue = totalValue  feeWithoutTax;
+        totalValue = totalValue  + feeWithoutTax;
     })
     return totalValue;
  }
 
 /* モーダル内容作成 */
-document.getElementById("modal_display_button").onclick = function() {
-	const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
-	const itemFeeInTax = [900, 162, 378, 216, 378, 162, 378, 367, 324];
-	const itemFeeWithoutTax = [834, 150, 378, 216, 378, 162, 378, 367, 324];
-	var totalFeeInTax = 0;
-	var displayItemList = [];    
-    $('input[name="counter"]').each(function(index) {
-        var qty = $(this).val();
-        var feeInTax = itemFeeInTax[index] * qty
-        if (feeInTax > 0) {
-			displayItemList.push([itemName[index], qty, feeInTax.toLocaleString()]);
-        }
-        totalFeeInTax = totalFeeInTax + feeInTax;
-    })
-    
-    // tbodyの作成
-	createTbody(displayItemList, totalFeeInTax.toLocaleString());
-};
+// document.getElementById("modal_display_button").onclick = function() {
+// 	const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
+// 	const itemFeeInTax = [900, 162, 378, 216, 378, 162, 378, 367, 324];
+// 	const itemFeeWithoutTax = [834, 150, 378, 216, 378, 162, 378, 367, 324];
+// 	var totalFeeInTax = 0;
+// 	var displayItemList = [];    
+//     $('input[name="counter"]').each(function(index) {
+//         var qty = $(this).val();
+//         var feeInTax = itemFeeInTax[index] * qty
+//         if (feeInTax > 0) {
+// 			displayItemList.push([itemName[index], qty, feeInTax.toLocaleString()]);
+//         }
+//         totalFeeInTax = totalFeeInTax + feeInTax;
+//     })
+//     
+//     // tbodyの作成
+// 	createTbody(displayItemList, totalFeeInTax.toLocaleString());
+// };
 
 function createTbody(displayItemList, totalFeeInTax) {
 		console.log(totalFeeInTax);
@@ -112,5 +112,4 @@ function sum_show(){
     } else {
         $('#totalFeeOutTax').removeClass("is-valid").addClass("is-invalid");    		
     }
-
 }
