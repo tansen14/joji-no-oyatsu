@@ -70,7 +70,6 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
-          window.alert('注文が完了しました。');
           reserved(lineId);
         },
         200: function() {
@@ -126,10 +125,11 @@
     fetch('https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId)
       .then((data) => data.json())
       .then((obj) => {
+        window.alert('注文が完了しました。\n【注文番号】\n' + obj.orderNum);
         // 文字列を送信させる
         liff.sendMessages([{
             'type': 'text',
-            'text': "【注文番号】" + obj.oderNum
+            'text': "【注文番号】" + obj.orderNum
         }]).then(function() {
           // LIFFを閉じる
           liff.closeWindow();
