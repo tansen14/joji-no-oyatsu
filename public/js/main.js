@@ -71,7 +71,18 @@
         // 送信が成功した場合
         0: function() {
           // 文字列を送信させる
-          getOrderNum(lineId);
+          if (!liff.isInClient()) {
+            sendAlertIfNotInClient();
+          } else {
+            liff.sendMessages([{
+                'type': 'text',
+                'text': getOrderNum(lineId)
+            }]).then(function() {
+                window.alert('注文が完了しました。');
+            }).catch(function(error) {
+                // window.alert('Error sending message: ' + error);
+            });
+          }
           // LIFFを閉じる
           liff.closeWindow();
         },
@@ -124,7 +135,6 @@
     fetch('https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId)
       .then((data) => data.json())
       .then((obj) => {
-        console.log(obj.orderNum);
         return "【注文番号】" + obj.oderNum;
       });
   }
