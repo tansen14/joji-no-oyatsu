@@ -28,28 +28,25 @@ function getValue() {
  }
 
 /* モーダル内容作成 */
-// document.getElementById("modal_display_button").onclick = function() {
-// 	const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
-// 	const itemFeeInTax = [900, 162, 378, 216, 378, 162, 378, 367, 324];
-// 	const itemFeeWithoutTax = [834, 150, 378, 216, 378, 162, 378, 367, 324];
-// 	var totalFeeInTax = 0;
-// 	var displayItemList = [];    
-//     $('input[name="counter"]').each(function(index) {
-//         var qty = $(this).val();
-//         var feeInTax = itemFeeInTax[index] * qty
-//         if (feeInTax > 0) {
-// 			displayItemList.push([itemName[index], qty, feeInTax.toLocaleString()]);
-//         }
-//         totalFeeInTax = totalFeeInTax + feeInTax;
-//     })
-//     
-//     // tbodyの作成
-// 	createTbody(displayItemList, totalFeeInTax.toLocaleString());
-// };
+function createTable() {
+	const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
+	var totalFeeInTax = 0;
+	var displayItemList = [];    
+    $('input[name="counter"]').each(function(index) {
+        var qty = $(this).val();
+        var feeInTax = itemFeeInTax[index] * qty
+        if (feeInTax > 0) {
+			displayItemList.push([itemName[index], qty, feeInTax.toLocaleString()]);
+        }
+        totalFeeInTax = totalFeeInTax + feeInTax;
+    })
+    
+    // tbodyの作成
+	createTbody(displayItemList, totalFeeInTax.toLocaleString());
+};
 
 function createTbody(displayItemList, totalFeeInTax) {
-		console.log(totalFeeInTax);
-		var tbody = document.getElementById('modal_itemlist');
+		var tbody = document.getElementById('itemListToBuy');
 		
 		// 初期化
 		clearTable(tbody);
@@ -86,7 +83,7 @@ function createTbody(displayItemList, totalFeeInTax) {
 		var td1 = document.createElement('td');
 		td1.classList.add("font-weight-bolder");
 		td1.classList.add("text-right");
-		td1.innerHTML = "合計";
+		td1.innerHTML = "(税込)合計";
 		tr.appendChild(td1);
 		var td2 = document.createElement('td');
 		tr.appendChild(td2);
@@ -106,10 +103,13 @@ function clearTable(tbody) {
 
 function sum_show(){
     const totalFee = getValue();
+    const totalFeeInTax = "¥" + totalFee.toLocaleString();
     $('#totalFeeOutTax').val(getValue());
     if ( totalFee >= 500) {
-	    $('#totalFeeOutTax').removeClass("is-invalid").addClass("is-valid");    	
+	    $('#totalFeeOutTax').removeClass("is-invalid").addClass("is-valid");
+	    createTable();
     } else {
-        $('#totalFeeOutTax').removeClass("is-valid").addClass("is-invalid");    		
+        $('#totalFeeOutTax').removeClass("is-valid").addClass("is-invalid");   
+        $('#totalFeeInTax').val(""); 
     }
 }
