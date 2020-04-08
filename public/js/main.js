@@ -19,21 +19,14 @@
     });
   }
 
-  function onSubmitBtn() {
-    alert("test");
-
+  const onSubmitBtn = $("#form");
+  onSubmitBtn.submit(function(){
     // 結果送信ボタン
     const submitBtn = document.getElementById('submit-btn');
 
     event.stopPropagation();
     // イベントキャンセル
     event.preventDefault();
-
-
-    // 送信確認表を表示
-    result();
-    // 計算処理　税込み合計料金
-    caluculate();
 
     const year = 2020;
     const month = 4;
@@ -46,11 +39,6 @@
     const sumPrice = 500;
     // itemの個数の配列
     const items = document.getElementsByName('counter');
-
-    // 確認事項を表示
-    const confirm = document.getElementById('confirm');
-    confirm.style.display = "block";
-    pageScroll()
 
     // 裏に用意したGoogleFormにajax非同期通信で値を送信する
     $.ajax({
@@ -92,7 +80,7 @@
         }
       }
     });
-  }
+  });
 
   // 初回API読み込み
   date_check();

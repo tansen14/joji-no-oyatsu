@@ -1,5 +1,4 @@
 
-/* ここから修正↓↓ */
 function result() {
   var list = document.getElementById('list');
   while (list.firstChild) list.removeChild(list.firstChild);
@@ -35,20 +34,3 @@ var view = function(name, key, value, list) {
   td2.innerText = name;
   td3.innerText = value;
 }
-/* ここまで修正↑↑ */
-
-// スクロール
-  function pageScroll() {
-    // #で始まるアンカーをクリックした場合に処理
-      // スクロールの速度
-      var speed = 400; // ミリ秒
-      // アンカーの値取得
-      var href= "#confirm";
-      // 移動先を取得
-      var target = $(href == "#" || href == "" ? 'html' : href);
-      // 移動先を数値で取得
-      var position = target.offset().top;
-      // スムーススクロール
-      $('body,html').animate({scrollTop:position}, speed, 'swing');
-      return false;
-  }

@@ -1,8 +1,8 @@
 $(function(){
-    
+
     var arySpinnerCtrl = [];
     var spin_speed = 20; //変動スピード
-    
+
     //長押し押下時
     $('.btnspinner').on('touchstart mousedown click', function(e){
         if(arySpinnerCtrl['interval']) return false;
@@ -24,7 +24,7 @@ $(function(){
             }
         }, 500);
     });
-    
+
     //長押し解除時 画面スクロールも解除に含む
     $(document).on('touchend mouseup scroll', function(e){
         if(arySpinnerCtrl['interval']){
@@ -32,7 +32,7 @@ $(function(){
             arySpinnerCtrl = [];
         }
     });
-    
+
     //変動計算関数
     function spinnerCal(){
         var target = $(arySpinnerCtrl['target']);
@@ -46,5 +46,5 @@ $(function(){
             target.val(num);
         }
     }
-    
+
 });

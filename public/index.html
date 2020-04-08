@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="form" onsubmit="onSubmitBtn()" action="#confirm">
+        <form id="form">
             <div class="logo">
                 <img alt="logo" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/624362_56176.png" class="itemImage">
             </div>
@@ -21,7 +21,7 @@
                         <h3 class="itemName">
                             ジョージのおやつHAPPY BOX
                         </h3>
-                        <div class="itemPrice">税込み￥900</div>
+                        <div class="itemPrice">税込み￥<span>900</span></div>
                         <div class="itemImage">
                             <img alt="ジョージのおやつHAPPY BOX" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/180236_132664.png" class="itemImage">
                         </div>
@@ -35,7 +35,7 @@
                         <h3 class="itemName">
                             カヌレ
                         </h3>
-                        <div class="itemPrice">￥150( + 税)</div>
+                        <div class="itemPrice">￥<span>150</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="カヌレ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/8E423901-D8BA-4A96-A31C-E8E0700BEF75_xlxpjk.jpg" class="itemImage">
                         </div>
@@ -49,7 +49,7 @@
                         <h3 class="itemName">
                             チーズケーキ<br>(1/8カット)
                         </h3>
-                        <div class="itemPrice">￥350( + 税)</div>
+                        <div class="itemPrice">￥<span>350</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="チーズケーキ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/986630_933113.jpg" class="itemImage">
                         </div>
@@ -63,7 +63,7 @@
                         <h3 class="itemName">
                             アップルパイ
                         </h3>
-                        <div class="itemPrice">￥200( + 税)</div>
+                        <div class="itemPrice">￥<span>200</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="アップルパイ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/182850_954647.png" class="itemImage">
                         </div>
@@ -77,7 +77,7 @@
                         <h3 class="itemName">
                             イチゴのタルト(1/8カット)
                         </h3>
-                        <div class="itemPrice">￥350( + 税)</div>
+                        <div class="itemPrice">￥<span>350</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="イチゴのタルト" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/IMG_5948_htra4x.jpg" class="itemImage">
                         </div>
@@ -92,7 +92,7 @@
                             クッキーシュー
                         </h3>
                         <br />
-                        <div class="itemPrice">￥150( + 税)</div>
+                        <div class="itemPrice">￥<span>150</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="クッキーシュー" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/394107_360938.jpg" class="itemImage">
                         </div>
@@ -106,7 +106,7 @@
                         <h3 class="itemName">
                             桜あんと生クリームのタルト(1/8カット)
                         </h3>
-                        <div class="itemPrice">￥350( + 税)</div>
+                        <div class="itemPrice">￥<span>350</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="桜あんと生クリームのタルト" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/%E5%9B%B31_qdwwix.png" class="itemImage">
                         </div>
@@ -121,7 +121,7 @@
                             生ガトーショコラ
                         </h3>
                         <br />
-                        <div class="itemPrice">￥340( + 税)</div>
+                        <div class="itemPrice">￥<span>340</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="生ガトーショコラ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/69264_963784.png" class="itemImage">
                         </div>
@@ -135,7 +135,7 @@
                         <h3 class="itemName">
                             レモンケーキ
                         </h3>
-                        <div class="itemPrice">￥300( + 税)</div>
+                        <div class="itemPrice">￥<span>300</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="レモンケーキ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/944469_30738.jpeg" class="itemImage">
                         </div>
@@ -150,9 +150,8 @@
             <hr />
             <div class="form-group row">
                 <label class="col-12 col-form-label">合計料金(税抜)</label>
-                 <div class="col-6">
-                    <input id="totalFeeOutTax" class="form-control is-invalid" type="number"  min="500" placeholder="0" readonly
-                    required>
+                <div class="col-6">
+                    <input id="totalFeeOutTax" class="form-control is-invalid" type="number"  min="500" placeholder="0" readonly required>
                     <div class="invalid-feedback">(税抜)500円以上で購入してください</div>
                 </div>
                 <div class="col-6 text-left pt-2 pl-0">円</div>
@@ -216,12 +215,9 @@
                     </div>
                 </div>
                 <!--/時間-->
-            <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">予約する</button>
+                <!-- <button class="next-btn btn btn-info mx-auto d-block" data-toggle="modal" data-target="#staticBackdrop" id="modal_display_button" type="submit">予約する</button> -->
+                <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">予約する</button>
         </form>
-        <!-- 切り替えボタンの設定 -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="modal_display_button">
-            ココを押すと表示
-        </button>
 
         <!-- モーダルの設定 -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -244,41 +240,32 @@
                         </ul>
                         <ul class="list-group list-group-horizontal mb-2">
                             <li class="list-group-item flex-fill col-4 text-center">お届け日</li>
-                            <li class="list-group-item flex-fill col-8" id="user_name">4/13 (木)</li>
+                            <li class="list-group-item flex-fill col-8" id="delivery_date">4/13 (木)</li>
                         </ul>
                         <ul class="list-group list-group-horizontal  mb-4">
                             <li class="list-group-item flex-fill col-4 text-center">時間</li>
-                            <li class="list-group-item flex-fill col-8" id="user_name">11:00 〜 11:30</li>
+                            <li class="list-group-item flex-fill col-8" id="delivery_time">11:00 〜 11:30</li>
                         </ul>
-                    <div>
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>#</th>
-                                <th scope="col">商品名</th>
-                                <th scope="col">数量</th>
-                                <th scope="col">小計</th>
-                            </tr>
-                        </thead>
-                        <!-- 購入する商品情報に沿ってtbody作成 -->
-                        <tbody id="modal_itemlist"></tbody>
-                    </table>
-                </div>
-                </div>
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="col">商品名</th>
+                                    <th scope="col">数量</th>
+                                    <th scope="col">小計</th>
+                                </tr>
+                            </thead>
+                            <!-- 購入する商品情報に沿ってtbody作成 -->
+                            <tbody id="modal_itemlist"></tbody>
+                        </table>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
-                        <button type="button" class="btn btn-primary">確定する</button>
+                        <!-- <button type="button" id="submit-btn" class="btn btn-primary">確定する</!--> -->
+                        <button type="button" id="" class="btn btn-primary">確定する</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ↓↓ここから下を修正！↓↓ -->
-        <div id="confirm" style="display: none;">
-            <hr />
-            <p>こちらでよろしいですか？</p>
-            <!--計算処理　税込み合計料金-->
-            <div id="edit_area"></div>
-                <!-- ↑↑ここまでを修正！↑↑ -->
         </div>
     </div>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js" type="text/javascript"></script>
