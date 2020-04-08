@@ -28,15 +28,15 @@
     // イベントキャンセル
     event.preventDefault();
 
-    const year = 2020;
-    const month = 4;
-    const day = 9;
-    const hour = 15;
-    const minute = 30;
-    const mail = "test@gmail.com";
-    const address = "青森県弘前市〇〇－１";
-    const phone = "090-1234-5678";
-    const sumPrice = 500;
+    const year = $('#date').val().slice(0, 4);
+    const month = $('#date').val().slice(5, 7);
+    const day = $('#date').val().slice(8, 10);
+    const hour = $('#exampleFormControlSelect1').val().slice(0, 2);
+    const minute = $('#exampleFormControlSelect1').val().slice(3, 5);
+    // const mail = $('#date').val();
+    const address = $('#inputAddress03').val();
+    const phone = $('#inputPhone').val();
+    const sumPrice = $('#totalFeeOutTax').val();
     // itemの個数の配列
     const items = document.getElementsByName('counter');
 
@@ -51,7 +51,7 @@
         'entry.567938596_day': day,             // 日
         'entry.567938596_hour': hour,           // 時
         'entry.567938596_minute': minute,       // 分
-        'entry.545868401': mail,                // メールアドレス
+        // 'entry.545868401': mail,                // メールアドレス
         'entry.775530315': address,             // 住所
         'entry.1315798513': phone,              // 電話番号
         'entry.1407908955': sumPrice,           // 合計料金
@@ -73,7 +73,6 @@
           reserved(lineId);
         },
         200: function() {
-          alert("失敗");
           liff.closeWindow();
         }
       }
@@ -131,12 +130,14 @@
             'type': 'text',
             'text': "【注文番号】" + obj.oderNum
         }]).then(function() {
-
+          // LIFFを閉じる
+          liff.closeWindow();
         }).catch(function(error) {
-            window.alert('Error sending message: ' + error);
+          window.alert('Error sending message: ' + error);
+          // LIFFを閉じる
+          liff.closeWindow();
         });
-        // LIFFを閉じる
-        liff.closeWindow();
+
       });
   }
 
