@@ -70,18 +70,7 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
-          alert("成功");
-          // 文字列を送信させる
-          liff.sendMessages([{
-              'type': 'text',
-              'text': getOrderNum(lineId)
-          }]).then(function() {
-              window.alert('注文が完了しました。');
-          }).catch(function(error) {
-              window.alert('Error sending message: ' + error);
-          });
-          // LIFFを閉じる
-          liff.closeWindow();
+          reserved(lineId);
         },
         200: function() {
           alert("失敗");
@@ -132,11 +121,23 @@
     });
   }
 
-  function getOrderNum(lineId) {
+  function reserved(lineId) {
     fetch('https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId)
       .then((data) => data.json())
       .then((obj) => {
-        return "【注文番号】" + obj.oderNum;
+        window.alert('注文が完了しました。');
+        // 文字列を送信させる
+        liff.sendMessages([{
+            'type': 'text',
+            'text': "【注文番号】" + obj.oderNum
+        }]).then(function() {
+
+        }).catch(function(error) {
+            window.alert('Error sending message: ' + error);
+        });
+        // LIFFを閉じる
+        liff.closeWindow();
       });
   }
+
 }
