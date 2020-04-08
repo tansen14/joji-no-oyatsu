@@ -70,24 +70,22 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
+          alert("成功");
           // 文字列を送信させる
-          if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-          } else {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': getOrderNum(lineId)
-            }]).then(function() {
-                window.alert('注文が完了しました。');
-            }).catch(function(error) {
-                // window.alert('Error sending message: ' + error);
-            });
-          }
+          liff.sendMessages([{
+              'type': 'text',
+              'text': getOrderNum(lineId)
+          }]).then(function() {
+              window.alert('注文が完了しました。');
+          }).catch(function(error) {
+              window.alert('Error sending message: ' + error);
+          });
           // LIFFを閉じる
           liff.closeWindow();
         },
         200: function() {
-          //
+          alert("失敗");
+          liff.closeWindow();
         }
       }
     });
@@ -107,7 +105,7 @@
     const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
 
     $("#exampleFormControlSelect1").append("<option selected>時間帯を選択してください</option>");
-    
+
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
       $("#exampleFormControlSelect1").append(data_option);
