@@ -70,9 +70,11 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
+          window.alert('注文が完了しました。');
           reserved(lineId);
         },
         200: function() {
+          alert("注文失敗しました。もう一度最初からお試しください");
           liff.closeWindow();
         }
       }
@@ -124,7 +126,6 @@
     fetch('https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId)
       .then((data) => data.json())
       .then((obj) => {
-        window.alert('注文が完了しました。');
         // 文字列を送信させる
         liff.sendMessages([{
             'type': 'text',
