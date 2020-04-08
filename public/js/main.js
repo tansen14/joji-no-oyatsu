@@ -122,24 +122,29 @@
   }
 
   function reserved(lineId) {
-    fetch('https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId)
-      .then((data) => data.json())
-      .then((obj) => {
-        window.alert('注文が完了しました。\n【注文番号】\n' + obj.orderNum);
-        // 文字列を送信させる
-        liff.sendMessages([{
-            'type': 'text',
-            'text': "【注文番号】" + obj.orderNum
-        }]).then(function() {
-          // LIFFを閉じる
-          liff.closeWindow();
-        }).catch(function(error) {
-          window.alert('Error sending message: ' + error);
-          // LIFFを閉じる
-          liff.closeWindow();
-        });
-
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId,
+      type: 'GET',
+      datatype: 'json'
+    })
+    .done(function(data) {
+      let order_num = data.orderNum;
+      window.alert('注文が完了しました。\n【注文番号】\n' + order_num);
+      // 文字列を送信させる
+      liff.sendMessages([{
+        'type': 'text',
+        'text': "【注文番号】" + order_num
+      }]).then(function() {
+        // LIFFを閉じる
+        liff.closeWindow();
+      }).catch(function(error) {
+        window.alert('Error sending message: ' + error);
+        // LIFFを閉じる
+        liff.closeWindow();
       });
+    })
+    .fail(function(data) {
+    });
   }
 
 }
