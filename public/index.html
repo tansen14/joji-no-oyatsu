@@ -35,7 +35,7 @@
                         <h3 class="itemName">
                             カヌレ
                         </h3>
-                        <div class="itemPrice">￥<span>150</span>( + 税)</div>
+                        <div class="itemPrice">￥<span>200</span>( + 税)</div>
                         <div class="itemImage">
                             <img alt="カヌレ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/8E423901-D8BA-4A96-A31C-E8E0700BEF75_xlxpjk.jpg" class="itemImage">
                         </div>
@@ -158,7 +158,7 @@
             </div>
             <!--電話番号-->
             <div class="form-group row">
-                <label for="inputPhone" class="col-12 col-form-label">電話番号</label>
+                <label for="inputPhone" class="col-12 col-form-label">電話番号<span class="text-danger">(必須)</span></label>
                 <div class="col-12">
                     <input type="phone" class="form-control" id="inputPhone" placeholder="電話番号" required>
                     <div class="invalid-feedback">入力してください</div>
@@ -167,10 +167,9 @@
             <!--/電話番号-->
             <!--メール-->
               <div class="form-group row">
-                <label for="exampleInputEmail1" class="col-12 col-form-label">Eメールアドレス(任意)</label>
+                <label for="exampleInputEmail1" class="col-12 col-form-label">Eメールアドレス</label>
                 <div class="col-12">
                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Eメールアドレス">
-                    <small class="text-muted">上記アドレスに、注文情報をお送りします。</small>
                     <div class="invalid-feedback">入力してください</div>
                 </div>
             </div>
@@ -178,7 +177,7 @@
             <!--住所-->
             <div class="form-group row inputAddress01">
                 <div class="col-4">
-                    <label for="inputAddress01">郵便番号<br>(7桁)</label>
+                    <label for="inputAddress01">郵便番号<br>(7桁)<span class="text-danger">(必須)</span></label>
                     <input type="text" name="zip01" maxlength="8" onkeyup="AjaxZip3.zip2addr(this,'','pref01','addr01');" class="form-control" id="inputAddress01" placeholder="0368096" required>
                     <div class="invalid-feedback">入力してください</div>
                 </div>
@@ -188,7 +187,7 @@
                     <div class="invalid-feedback">入力してください</div>
                 </div>
                 <div class="col-8">
-                    <label for="inputAddress03">住所</label>
+                    <label for="inputAddress03">住所<span class="text-danger">(必須)</span></label>
                     <input type="text" name="addr01" class="form-control" id="inputAddress03" placeholder="弘前市〇〇町1-1" required>
                     <div class="invalid-feedback">入力してください</div>
                 </div>
@@ -196,15 +195,15 @@
             <!--/住所-->
             <!--日付-->
             <div class="form-group row">
-                <label  class="col-12 col-form-label">お届け日(4/13〜4/15)</label>
+                <label  class="col-12 col-form-label">お届け日(4/13〜4/16)<span class="text-danger">(必須)</span></label>
                 <div class="col-12">
-                    <input id="date" type="date" name="dateN" class="form-control" min="2020-04-13" max="2020-04-15" required>
+                    <input id="date" type="date" name="dateN" class="form-control" min="2020-04-13" max="2020-04-16" required>
                 </div>
             </div>
             <!--/日付-->
             <!--時間-->
             <div class="form-group row">
-                <label class="col-12" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)</label>
+                <label class="col-12" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)<span class="text-danger">(必須)</span></label>
                 <div class="col-9">
                     <select class="form-control" id="exampleFormControlSelect1">
                         <option selected>選択してください</option>

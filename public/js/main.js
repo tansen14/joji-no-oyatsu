@@ -28,21 +28,7 @@
     event.stopPropagation();
     // イベントキャンセル
     event.preventDefault();
-
-    const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
-	var totalFeeInTax = 0;
-	var displayItemData = "";
-    $('input[name="counter"]').each(function(index) {
-        var qty = $(this).val();
-        var feeInTax = itemFeeInTax[index] * qty;
-        if (feeInTax > 0) {
-        	displayItemData = displayItemData + itemName[index] + "×" + qty + ": ¥" + feeInTax.toLocaleString() + "\n";
-        }
-        totalFeeInTax = totalFeeInTax + feeInTax;
-    })
-    displayItemData = displayItemData + "\n_________________\n　　　合計： ¥" + totalFeeInTax.toLocaleString();
-    console.log(displayItemData);
-
+    
     const year = $('#date').val().slice(0, 4);
     const month = $('#date').val().slice(5, 7);
     const day = $('#date').val().slice(8, 10);
@@ -52,6 +38,28 @@
     const address = $('#inputAddress03').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
+
+    const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
+	var totalFeeInTax = 0;
+	var displayItemData = "";
+	
+	
+	const times = $("#exampleFormControlSelect1 option:selected").text();
+	const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
+	const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
+	
+	displayItemData =  phoneaddress+ "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
+    $('input[name="counter"]').each(function(index) {
+        var qty = $(this).val();
+        var feeInTax = itemFeeInTax[index] * qty;
+        if (feeInTax > 0) {
+        	displayItemData = displayItemData + itemName[index] + "×" + qty + ": \n¥" + feeInTax.toLocaleString() + "\n";
+        }
+        totalFeeInTax = totalFeeInTax + feeInTax;
+    })
+    displayItemData = displayItemData + "_______________________\n合計: \n¥" + totalFeeInTax.toLocaleString();
+    console.log(displayItemData);
+
     // itemの個数の配列
     const items = document.getElementsByName('counter');
 
@@ -85,7 +93,7 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
-          setTimeout(reserved(lineId), 3000);
+          setTimeout(reserved(lineId, displayItemData), 2000);
         },
         200: function() {
           alert("注文失敗しました。もう一度最初からお試しください");
@@ -140,7 +148,7 @@
     });
   }
 
-  function reserved(lineId) {
+  function reserved(lineId, displayItemData) {
     $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId,
       type: 'GET',
@@ -153,7 +161,7 @@
         // 文字列を送信させる
       liff.sendMessages([{
         'type': 'text',
-        'text': "【注文番号】" + order_num + "\n\n" + displayItemData
+        'text': "【注文番号】" + order_num + "\n" + displayItemData
       }]).then(function() {
         // LIFFを閉じる
         liff.closeWindow();

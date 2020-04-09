@@ -1,7 +1,7 @@
 /*商品情報*/
 const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
-const itemFeeInTax = [900, 162, 378, 216, 378, 162, 378, 367, 324];
-const itemFeeWithoutTax = [834, 150, 350, 200, 350, 150, 350, 340, 300];
+const itemFeeInTax = [900, 216, 378, 216, 378, 162, 378, 367, 324];
+const itemFeeWithoutTax = [834, 200, 350, 200, 350, 150, 350, 340, 300];
 
 function accountCaluculate() {
     
