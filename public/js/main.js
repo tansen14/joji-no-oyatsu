@@ -28,10 +28,10 @@
     event.stopPropagation();
     // イベントキャンセル
     event.preventDefault();
-    
+
     const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
 	var totalFeeInTax = 0;
-	var displayItemData = "";    
+	var displayItemData = "";
     $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeInTax = itemFeeInTax[index] * qty;
@@ -42,7 +42,7 @@
     })
     displayItemData = displayItemData + "\n_________________\n　　　合計： ¥" + totalFeeInTax.toLocaleString();
     console.log(displayItemData);
-    
+
     const year = $('#date').val().slice(0, 4);
     const month = $('#date').val().slice(5, 7);
     const day = $('#date').val().slice(8, 10);
@@ -85,7 +85,7 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
-          reserved(lineId);
+          setTimeout(reserved(lineId), 3000);
         },
         200: function() {
           alert("注文失敗しました。もう一度最初からお試しください");
