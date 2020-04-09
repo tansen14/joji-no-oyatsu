@@ -59,7 +59,6 @@
         totalFeeInTax = totalFeeInTax + feeInTax;
     })
     displayItemData = displayItemData + "_______________________\n合計: \n¥" + totalFeeInTax.toLocaleString();
-    console.log(displayItemData);
 
     // itemの個数の配列
     const items = document.getElementsByName('counter');
@@ -120,7 +119,7 @@
     $("#exampleFormControlSelect1").empty();
     const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
 
-    $("#exampleFormControlSelect1").append("<option hidden selected>選択してください</option>");
+    $("#exampleFormControlSelect1").append("<option hidden>選択してください</option>");
 
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
@@ -160,6 +159,9 @@
         // インジケータ終了
         $("#loading").css("display", "none");
       let order_num = data.orderNum;
+      const m = "予約確定しました。画面が閉じない場合は左上のXボタンで閉じてください。\n【注文番号】" + order_num + "\n" + displayItemData;
+      window.alert(m);
+
         // 文字列を送信させる
       liff.sendMessages([{
         'type': 'text',
