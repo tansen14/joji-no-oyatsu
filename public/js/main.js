@@ -28,7 +28,21 @@
     event.stopPropagation();
     // イベントキャンセル
     event.preventDefault();
-
+    
+    const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
+	var totalFeeInTax = 0;
+	var displayItemData = "";    
+    $('input[name="counter"]').each(function(index) {
+        var qty = $(this).val();
+        var feeInTax = itemFeeInTax[index] * qty;
+        if (feeInTax > 0) {
+        	displayItemData = displayItemData + itemName[index] + "×" + qty + ": ¥" + feeInTax.toLocaleString() + "\n";
+        }
+        totalFeeInTax = totalFeeInTax + feeInTax;
+    })
+    displayItemData = displayItemData + "\n_________________\n　　　合計： ¥" + totalFeeInTax.toLocaleString();
+    console.log(displayItemData);
+    
     const year = $('#date').val().slice(0, 4);
     const month = $('#date').val().slice(5, 7);
     const day = $('#date').val().slice(8, 10);
@@ -136,11 +150,10 @@
         // インジケータ終了
         $("#loading").css("display", "none");
       let order_num = data.orderNum;
-      window.alert('注文が完了しました。\n【注文番号】\n' + order_num);
         // 文字列を送信させる
       liff.sendMessages([{
         'type': 'text',
-        'text': "【注文番号】" + order_num
+        'text': "【注文番号】" + order_num + "\n\n" + displayItemData
       }]).then(function() {
         // LIFFを閉じる
         liff.closeWindow();
