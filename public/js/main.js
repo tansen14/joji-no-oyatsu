@@ -119,10 +119,13 @@
     $("#exampleFormControlSelect1").empty();
     const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
 
-    $("#exampleFormControlSelect1").append("<option hidden>選択してください</option>");
+    // $("#exampleFormControlSelect1").append("<option hidden>選択してください</option>");
 
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
+      if(i == 0){
+        data_option = '<option value=' + base_time[i] + ' selected>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
+      }
       $("#exampleFormControlSelect1").append(data_option);
     }
     $("#exampleFormControlSelect1 option").prop("disabled", false);
