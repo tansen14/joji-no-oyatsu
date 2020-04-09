@@ -205,8 +205,8 @@
             <div class="form-group row">
                 <label class="col-12" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)<span class="text-danger">(必須)</span></label>
                 <div class="col-9">
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option selected>選択してください</option>
+                    <select class="form-control" id="exampleFormControlSelect1" required>
+                        <option hidden>選択してください</option>
                         <option value="11:00">11:00 〜 11:30</option>
                         <option value="11:30">11:30 〜 12:00</option>
                         <option value="12:00">12:00 〜 12:30</option>
@@ -252,8 +252,8 @@
                     </div>
                 </div>
             </button>
- 
         </form>
+        <small class="text-right">v1.0.1</small>
 
         <!-- モーダルの設定 -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
