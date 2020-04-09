@@ -21,6 +21,8 @@
 
   const onSubmitBtn = $("#form");
   onSubmitBtn.submit(function(){
+    // 予約ボタンの停止
+    $('#submit-btn').prop("disabled", true);
     // インジケータ開始
     $("#loading").css("display", "");
     // 結果送信ボタン
@@ -94,10 +96,12 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
-          setTimeout(reserved(lineId, displayItemData), 2000);
+          setTimeout(reserved(lineId, displayItemData), 3000);
         },
         200: function() {
           alert("注文失敗しました。もう一度最初からお試しください");
+          // 予約ボタンの停止
+          $('#submit-btn').prop("disabled", false);
           liff.closeWindow();
         }
       }
@@ -114,6 +118,9 @@
   function date_check() {
     // インジケータ開始
     $("#dateCheckLoading").css("display", "");
+    // 予約ボタンの停止
+    $('submit-btn').prop("disabled", true);
+
     $("#exampleFormControlSelect1").prop("disabled", true);
     // 初期化
     $("#exampleFormControlSelect1").empty();
@@ -149,6 +156,8 @@
     })
     .fail(function(data) {
       $("#exampleFormControlSelect1").prop("disabled", false);
+      // 予約ボタンの開始
+      $('#submit-btn').prop("disabled", false);
     });
   }
 
@@ -180,6 +189,8 @@
       liff.closeWindow();
     })
     .fail(function(data) {
+      // 予約ボタンの開始
+      $('#submit-btn').prop("disabled", false);
     });
   }
 
