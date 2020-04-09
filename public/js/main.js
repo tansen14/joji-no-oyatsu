@@ -21,9 +21,10 @@
 
   const onSubmitBtn = $("#form");
   onSubmitBtn.submit(function(){
+    // インジケータ開始
+    $("#loading").css("display", "");
     // 結果送信ボタン
     const submitBtn = document.getElementById('submit-btn');
-
     event.stopPropagation();
     // イベントキャンセル
     event.preventDefault();
@@ -88,12 +89,14 @@
   });
 
   function date_check() {
+    // インジケータ開始
+    $("#dateCheckLoading").css("display", "");
     $("#exampleFormControlSelect1").prop("disabled", true);
     // 初期化
     $("#exampleFormControlSelect1").empty();
     const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
 
-    $("#exampleFormControlSelect1").append("<option selected>時間帯を選択してください</option>");
+    $("#exampleFormControlSelect1").append("<option selected>選択してください</option>");
 
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
@@ -110,6 +113,8 @@
       datatype: 'json'
     })
     .done(function(data) {
+      // インジケータ終了
+      $("#dateCheckLoading").css("display", "none");
       let reserved_dates = data.ReservedDates;
       reserved_dates.forEach(element => {
         $('#exampleFormControlSelect1 option[value="' + element + '"]').text('✕既にご予約されています。').prop("disabled", true);
@@ -128,6 +133,8 @@
       datatype: 'json'
     })
     .done(function(data) {
+        // インジケータ終了
+        $("#loading").css("display", "none");
       let order_num = data.orderNum;
       window.alert('注文が完了しました。\n【注文番号】\n' + order_num);
         // 文字列を送信させる

@@ -166,10 +166,10 @@
             </div>
             <!--/電話番号-->
             <!--メール-->
-              <div class="form-group row">
+              <div class="form-group row" style="display: none">
                 <label for="exampleInputEmail1" class="col-12 col-form-label">Eメールアドレス</label>
                 <div class="col-12">
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Eメールアドレス" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Eメールアドレス">
                     <small class="text-muted">上記アドレスに、注文情報をお送りします。</small>
                     <div class="invalid-feedback">入力してください</div>
                 </div>
@@ -196,7 +196,7 @@
             <!--/住所-->
             <!--日付-->
             <div class="form-group row">
-                <label  class="col-12 col-form-label">お届け日(13日〜15日)</label>
+                <label  class="col-12 col-form-label">お届け日(4/13〜4/15)</label>
                 <div class="col-12">
                     <input id="date" type="date" name="dateN" class="form-control" min="2020-04-13" max="2020-04-15" required>
                 </div>
@@ -204,10 +204,10 @@
             <!--/日付-->
             <!--時間-->
             <div class="form-group row">
-                <label class="col-12" for="FormSelectTime">時間(下記時間帯にお届けします。)</label>
-                <div class="col-12">
+                <label class="col-12" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)</label>
+                <div class="col-9">
                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option selected>時間帯を選択してください</option>
+                        <option selected>選択してください</option>
                         <option value="11:00">11:00 〜 11:30</option>
                         <option value="11:30">11:30 〜 12:00</option>
                         <option value="12:00">12:00 〜 12:30</option>
@@ -223,6 +223,9 @@
                         <option value="17:00">17:00 〜 17:30</option>
                         <option value="17:30">17:30 〜 18:00</option>
                     </select>
+                </div>
+                <div class="spinner-border spinner-border-sm mt-2" id="dateCheckLoading" role="status" >
+                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
             <!--/時間-->
@@ -241,7 +244,16 @@
                     <tbody id="itemListToBuy"></tbody>
                 </table>
             </div>
-            <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">予約する</button>
+            <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">
+                <div>
+                    <div class="col-12">予約する
+                        <div class="spinner-border spinner-border-sm mb-1" id="loading" role="status" style="display: none;">
+                            <span class="sr-only">Reserved...</span>
+                        </div>
+                    </div>
+                </div>
+            </button>
+ 
         </form>
 
         <!-- モーダルの設定 -->
