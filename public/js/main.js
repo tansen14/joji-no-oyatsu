@@ -28,7 +28,8 @@
     event.stopPropagation();
     // イベントキャンセル
     event.preventDefault();
-    
+
+    const fullName = $('#fullName').val();
     const year = $('#date').val().slice(0, 4);
     const month = $('#date').val().slice(5, 7);
     const day = $('#date').val().slice(8, 10);
@@ -42,18 +43,18 @@
     const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
 	var totalFeeInTax = 0;
 	var displayItemData = "";
-	
-	
+
+
 	const times = $("#exampleFormControlSelect1 option:selected").text();
 	const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
 	const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
-	
+
 	displayItemData =  phoneaddress+ "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeInTax = itemFeeInTax[index] * qty;
         if (feeInTax > 0) {
-        	displayItemData = displayItemData + itemName[index] + "×" + qty + ": \n¥" + feeInTax.toLocaleString() + "\n";
+          displayItemData = displayItemData + itemName[index] + "×" + qty + ": \n¥" + feeInTax.toLocaleString() + "\n";
         }
         totalFeeInTax = totalFeeInTax + feeInTax;
     })
@@ -69,6 +70,7 @@
       data: {
         'entry.1353680214': lineId,             // lINE ID
         'entry.1235356053': displayName,        // 表示名
+        'entry.1925208028': fullName,           // 氏名
         'entry.567938596_year': year,           // 年
         'entry.567938596_month': month,         // 月
         'entry.567938596_day': day,             // 日
@@ -118,7 +120,7 @@
     $("#exampleFormControlSelect1").empty();
     const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
 
-    $("#exampleFormControlSelect1").append("<option selected>選択してください</option>");
+    $("#exampleFormControlSelect1").append("<option hidden selected>選択してください</option>");
 
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';

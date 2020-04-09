@@ -156,17 +156,26 @@
                 </div>
                 <div class="col-6 text-left pt-2 pl-0">円</div>
             </div>
+            <!--氏名-->
+            <div class="form-group row">
+                <label for="fullName" class="col-12 col-form-label">お名前<span class="text-danger">(必須)</span></label>
+                <div class="col-12">
+                    <input type="text" class="form-control" id="fullName" placeholder="お名前" required>
+                    <div class="invalid-feedback">入力してください</div>
+                </div>
+            </div>
+            <!--/氏名-->
             <!--電話番号-->
             <div class="form-group row">
                 <label for="inputPhone" class="col-12 col-form-label">電話番号<span class="text-danger">(必須)</span></label>
                 <div class="col-12">
-                    <input type="phone" class="form-control" id="inputPhone" placeholder="電話番号" required>
+                    <input type="phone" class="form-control" id="inputPhone" placeholder="電話番号">
                     <div class="invalid-feedback">入力してください</div>
                 </div>
             </div>
             <!--/電話番号-->
             <!--メール-->
-              <div class="form-group row">
+            <div class="form-group row">
                 <label for="exampleInputEmail1" class="col-12 col-form-label">Eメールアドレス</label>
                 <div class="col-12">
                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Eメールアドレス">
@@ -203,10 +212,10 @@
             <!--/日付-->
             <!--時間-->
             <div class="form-group row">
-                <label class="col-12" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)<span class="text-danger">(必須)</span></label>
+                <label class="col-12 col-form-label" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)<span class="text-danger">(必須)</span></label>
                 <div class="col-9">
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option selected>選択してください</option>
+                    <select class="form-control" id="exampleFormControlSelect1" required>
+                        <option hidden>選択してください</option>
                         <option value="11:00">11:00 〜 11:30</option>
                         <option value="11:30">11:30 〜 12:00</option>
                         <option value="12:00">12:00 〜 12:30</option>
@@ -252,7 +261,7 @@
                     </div>
                 </div>
             </button>
- 
+
         </form>
 
         <!-- モーダルの設定 -->
