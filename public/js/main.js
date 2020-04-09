@@ -58,7 +58,6 @@
         totalFeeInTax = totalFeeInTax + feeInTax;
     })
     displayItemData = displayItemData + "_______________________\n合計: \n¥" + totalFeeInTax.toLocaleString();
-    console.log(displayItemData);
 
     // itemの個数の配列
     const items = document.getElementsByName('counter');
