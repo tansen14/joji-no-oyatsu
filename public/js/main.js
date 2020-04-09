@@ -33,7 +33,7 @@
     const day = $('#date').val().slice(8, 10);
     const hour = $('#exampleFormControlSelect1').val().slice(0, 2);
     const minute = $('#exampleFormControlSelect1').val().slice(3, 5);
-    // const mail = $('#date').val();
+    const mail = $('#exampleInputEmail1').val();
     const address = $('#inputAddress03').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
@@ -51,8 +51,8 @@
         'entry.567938596_day': day,             // 日
         'entry.567938596_hour': hour,           // 時
         'entry.567938596_minute': minute,       // 分
-        // 'entry.545868401': mail,                // メールアドレス
         'entry.775530315': address,             // 住所
+        'entry.171214477': mail,                // メールアドレス
         'entry.1315798513': phone,              // 電話番号
         'entry.1407908955': sumPrice,           // 合計料金
         'entry.12472245': items[0].value,       // ジョージのおやつHAPPY BOX
@@ -130,18 +130,18 @@
     .done(function(data) {
       let order_num = data.orderNum;
       window.alert('注文が完了しました。\n【注文番号】\n' + order_num);
-      // 文字列を送信させる
-      // liff.sendMessages([{
-      //   'type': 'text',
-      //   'text': "【注文番号】" + order_num
-      // }]).then(function() {
-      //   // LIFFを閉じる
-      //   liff.closeWindow();
-      // }).catch(function(error) {
-      //   window.alert('Error sending message: ' + error);
-      //   // LIFFを閉じる
-      //   liff.closeWindow();
-      // });
+      文字列を送信させる
+      liff.sendMessages([{
+        'type': 'text',
+        'text': "【注文番号】" + order_num
+      }]).then(function() {
+        // LIFFを閉じる
+        liff.closeWindow();
+      }).catch(function(error) {
+        window.alert('Error sending message: ' + error);
+        // LIFFを閉じる
+        liff.closeWindow();
+      });
       liff.closeWindow();
     })
     .fail(function(data) {
