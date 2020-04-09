@@ -130,7 +130,7 @@
     .done(function(data) {
       let order_num = data.orderNum;
       window.alert('注文が完了しました。\n【注文番号】\n' + order_num);
-      文字列を送信させる
+        // 文字列を送信させる
       liff.sendMessages([{
         'type': 'text',
         'text': "【注文番号】" + order_num
