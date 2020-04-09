@@ -62,7 +62,6 @@ function createTbody(displayItemList, totalFeeInTax) {
 			tr.appendChild(th);
 			// 商品名
 			var td1 = document.createElement('td');
-			console.log(displayItem[0]);
 			td1.innerHTML = displayItem[0];
 			tr.appendChild(td1);
 			// 数量
