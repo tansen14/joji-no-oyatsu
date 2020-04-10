@@ -253,16 +253,20 @@
                 </table>
             </div>
             <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">
-                <div>
-                    <div class="col-12">予約する
-                        <div class="spinner-border spinner-border-sm mb-1" id="loading" role="status" style="display: none;">
-                            <span class="sr-only">Reserved...</span>
-                        </div>
+                <div class="col-12">予約する
+                    <div class="spinner-border spinner-border-sm mb-1" id="loading" role="status" style="display: none;">
+                        <span class="sr-only">Reserved...</span>
                     </div>
                 </div>
             </button>
+            <div class="alert alert-success alert-dismissible fade text-center mx-auto col-12" id="completealert" role="alert">
+                <strong>✔︎予約完了しました。</strong>
+                <div>
+                    <small>画面が閉じない場合は右上のXボタンで閉じてください。</small>
+                </div>
+            </div>
         </form>
-        <small class="text-right">v1.0.1</small>
+        <small class="text-right">v1.0.3</small>
 
         <!-- モーダルの設定 -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

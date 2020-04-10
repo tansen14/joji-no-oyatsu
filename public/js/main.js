@@ -41,7 +41,7 @@
     const address = $('#inputAddress03').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
-
+    const sumPriceInTax = sumPrice * 1.08;
     const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
 	var totalFeeInTax = 0;
 	var displayItemData = "";
@@ -80,7 +80,7 @@
         'entry.775530315': address,             // 住所
         'entry.171214477': mail,                // メールアドレス
         'entry.1315798513': phone,              // 電話番号
-        'entry.1407908955': sumPrice,           // 合計料金
+        'entry.1407908955': sumPriceInTax,           // 合計料金
         'entry.12472245': items[0].value,       // ジョージのおやつHAPPY BOX
         'entry.1191119162': items[1].value,     // カヌレ
         'entry.1553621218': items[2].value,     // チーズケーキ
@@ -99,10 +99,10 @@
           setTimeout(reserved(lineId, displayItemData), 3000);
         },
         200: function() {
-          alert("注文失敗しました。もう一度最初からお試しください");
           // 予約ボタンの停止
           $('#submit-btn').prop("disabled", false);
           liff.closeWindow();
+          alert("注文失敗しました。もう一度最初からお試しください");
         }
       }
     });
@@ -170,10 +170,8 @@
     .done(function(data) {
         // インジケータ終了
         $("#loading").css("display", "none");
+        $("#completealert").addClass("show");
       let order_num = data.orderNum;
-      const m = "予約確定しました。画面が閉じない場合は左上のXボタンで閉じてください。\n【注文番号】" + order_num + "\n" + displayItemData;
-      window.alert(m);
-
         // 文字列を送信させる
       liff.sendMessages([{
         'type': 'text',
@@ -181,10 +179,11 @@
       }]).then(function() {
         // LIFFを閉じる
         liff.closeWindow();
+        return;
       }).catch(function(error) {
-        window.alert('Error sending message: ' + error);
         // LIFFを閉じる
         liff.closeWindow();
+        return;
       });
       liff.closeWindow();
     })
