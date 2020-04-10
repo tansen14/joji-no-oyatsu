@@ -182,9 +182,9 @@
         window.alert(m);
         return;
       }).catch(function(error) {
-        window.alert('Error sending message: ' + error);
         // LIFFを閉じる
         liff.closeWindow();
+        window.alert('Error sending message: ' + error);
         return;
       });
       liff.closeWindow();
