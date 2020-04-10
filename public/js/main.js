@@ -171,9 +171,6 @@
         // インジケータ終了
         $("#loading").css("display", "none");
       let order_num = data.orderNum;
-      const m = "予約確定しました。画面が閉じない場合は左上のXボタンで閉じてください。\n【注文番号】" + order_num + "\n" + displayItemData;
-      window.alert(m);
-
         // 文字列を送信させる
       liff.sendMessages([{
         'type': 'text',
@@ -181,10 +178,14 @@
       }]).then(function() {
         // LIFFを閉じる
         liff.closeWindow();
+        const m = "予約確定しました。画面が閉じない場合は左上のXボタンで閉じてください。\n【注文番号】" + order_num + "\n" + displayItemData;
+        window.alert(m);
+        return;
       }).catch(function(error) {
         window.alert('Error sending message: ' + error);
         // LIFFを閉じる
         liff.closeWindow();
+        return;
       });
       liff.closeWindow();
     })
