@@ -99,10 +99,10 @@
           setTimeout(reserved(lineId, displayItemData), 3000);
         },
         200: function() {
-          alert("注文失敗しました。もう一度最初からお試しください");
           // 予約ボタンの停止
           $('#submit-btn').prop("disabled", false);
           liff.closeWindow();
+          alert("注文失敗しました。もう一度最初からお試しください");
         }
       }
     });
@@ -170,6 +170,7 @@
     .done(function(data) {
         // インジケータ終了
         $("#loading").css("display", "none");
+        $("#completealert").addClass("show");
       let order_num = data.orderNum;
         // 文字列を送信させる
       liff.sendMessages([{
@@ -178,13 +179,10 @@
       }]).then(function() {
         // LIFFを閉じる
         liff.closeWindow();
-        const m = "予約確定しました。画面が閉じない場合は左上のXボタンで閉じてください。\n【注文番号】" + order_num + "\n" + displayItemData;
-        window.alert(m);
         return;
       }).catch(function(error) {
         // LIFFを閉じる
         liff.closeWindow();
-        window.alert('Error sending message: ' + error);
         return;
       });
       liff.closeWindow();
