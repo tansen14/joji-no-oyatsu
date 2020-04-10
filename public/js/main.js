@@ -100,11 +100,10 @@
           // インジケータ終了
           $("#loading").css("display", "none");
           $("#completealert").addClass("show");
-          let order_num = data.orderNum;
-            // 文字列を送信させる
+          // 文字列を送信させる
           liff.sendMessages([{
             'type': 'text',
-            'text': "【注文番号】" + order_num + "\n" + displayItemData
+            'text': "【注文内容】\n" + displayItemData
           }]).then(function() {
             // LIFFを閉じる
             liff.closeWindow();
