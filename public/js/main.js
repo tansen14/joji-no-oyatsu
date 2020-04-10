@@ -48,10 +48,11 @@
 
 
 	const times = $("#exampleFormControlSelect1 option:selected").text();
+	const fn = "お名前: " + fullName;
 	const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
 	const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
 
-	displayItemData =  phoneaddress+ "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
+	displayItemData =  "\n\n" + fullName + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeInTax = itemFeeInTax[index] * qty;
