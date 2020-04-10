@@ -96,10 +96,28 @@
       statusCode: {
         // 送信が成功した場合
         0: function() {
-          setTimeout(reserved(lineId, displayItemData), 3000);
+          // setTimeout(reserved(lineId, displayItemData), 3000);
+          // インジケータ終了
+          $("#loading").css("display", "none");
+          $("#completealert").addClass("show");
+          let order_num = data.orderNum;
+            // 文字列を送信させる
+          liff.sendMessages([{
+            'type': 'text',
+            'text': "【注文番号】" + order_num + "\n" + displayItemData
+          }]).then(function() {
+            // LIFFを閉じる
+            liff.closeWindow();
+            return;
+          }).catch(function(error) {
+            // LIFFを閉じる
+            liff.closeWindow();
+            return;
+          });
+          liff.closeWindow();
         },
         200: function() {
-          // 予約ボタンの停止
+          // 予約ボタンの開始
           $('#submit-btn').prop("disabled", false);
           liff.closeWindow();
           alert("注文失敗しました。もう一度最初からお試しください");
@@ -130,9 +148,6 @@
 
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
-      if(i == 0){
-        data_option = '<option value=' + base_time[i] + ' selected>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
-      }
       $("#exampleFormControlSelect1").append(data_option);
     }
     $("#exampleFormControlSelect1 option").prop("disabled", false);
@@ -161,36 +176,36 @@
     });
   }
 
-  function reserved(lineId, displayItemData) {
-    $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId,
-      type: 'GET',
-      datatype: 'json'
-    })
-    .done(function(data) {
-        // インジケータ終了
-        $("#loading").css("display", "none");
-        $("#completealert").addClass("show");
-      let order_num = data.orderNum;
-        // 文字列を送信させる
-      liff.sendMessages([{
-        'type': 'text',
-        'text': "【注文番号】" + order_num + "\n" + displayItemData
-      }]).then(function() {
-        // LIFFを閉じる
-        liff.closeWindow();
-        return;
-      }).catch(function(error) {
-        // LIFFを閉じる
-        liff.closeWindow();
-        return;
-      });
-      liff.closeWindow();
-    })
-    .fail(function(data) {
-      // 予約ボタンの開始
-      $('#submit-btn').prop("disabled", false);
-    });
-  }
+  // function reserved(lineId, displayItemData) {
+  //   $.ajax({
+  //     url: 'https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=order_num&userId=' + lineId,
+  //     type: 'GET',
+  //     datatype: 'json'
+  //   })
+  //   .done(function(data) {
+  //       // インジケータ終了
+  //       $("#loading").css("display", "none");
+  //       $("#completealert").addClass("show");
+  //     let order_num = data.orderNum;
+  //       // 文字列を送信させる
+  //     liff.sendMessages([{
+  //       'type': 'text',
+  //       'text': "【注文番号】" + order_num + "\n" + displayItemData
+  //     }]).then(function() {
+  //       // LIFFを閉じる
+  //       liff.closeWindow();
+  //       return;
+  //     }).catch(function(error) {
+  //       // LIFFを閉じる
+  //       liff.closeWindow();
+  //       return;
+  //     });
+  //     liff.closeWindow();
+  //   })
+  //   .fail(function(data) {
+  //     // 予約ボタンの開始
+  //     $('#submit-btn').prop("disabled", false);
+  //   });
+  // }
 
 }
