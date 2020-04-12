@@ -52,7 +52,7 @@
 	const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
 	const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
 
-	displayItemData =  "\n\n" + fullName + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
+	displayItemData =  "\n\n" + fn + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeInTax = itemFeeInTax[index] * qty;
@@ -114,7 +114,6 @@
             liff.closeWindow();
             return;
           });
-          liff.closeWindow();
         },
         200: function() {
           // 予約ボタンの開始
