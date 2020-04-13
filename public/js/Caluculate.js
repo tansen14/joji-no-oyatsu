@@ -92,7 +92,6 @@ function createTbody(displayItemList, totalFeeInTax) {
 
 // 既存の行を削除
 function clearTable(tbody) {
-	console.log("くる？");
 	while (tbody.rows.length > 0) {
 		tbody.deleteRow(0);
 	}
