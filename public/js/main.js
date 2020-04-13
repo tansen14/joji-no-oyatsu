@@ -41,7 +41,6 @@
     const address = $('#inputAddress03').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
-    const sumPriceInTax = sumPrice * 1.08;
     const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
 	var totalFeeInTax = 0;
 	var displayItemData = "";
@@ -52,7 +51,7 @@
 	const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
 	const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
 
-	displayItemData =  "\n\n" + fullName + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
+	displayItemData =  "\n\n" + fn + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeInTax = itemFeeInTax[index] * qty;
@@ -81,7 +80,7 @@
         'entry.775530315': address,             // 住所
         'entry.171214477': mail,                // メールアドレス
         'entry.1315798513': phone,              // 電話番号
-        'entry.1407908955': sumPriceInTax,           // 合計料金
+        'entry.1407908955': totalFeeInTax,           // 合計料金
         'entry.12472245': items[0].value,       // ジョージのおやつHAPPY BOX
         'entry.1191119162': items[1].value,     // カヌレ
         'entry.1553621218': items[2].value,     // チーズケーキ
@@ -114,7 +113,6 @@
             liff.closeWindow();
             return;
           });
-          liff.closeWindow();
         },
         200: function() {
           // 予約ボタンの開始
