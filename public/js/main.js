@@ -42,9 +42,9 @@
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
     const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
-	var totalFeeInTax = 0;
-	var displayItemData = "";
-
+  	var totalFeeInTax = 0;
+  	var displayItemData = "";
+    const customerComment = $('#exampleFormControlTextarea1').val();
 
 	const times = $("#exampleFormControlSelect1 option:selected").text();
 	const fn = "お名前: " + fullName;
@@ -61,6 +61,7 @@
         totalFeeInTax = totalFeeInTax + feeInTax;
     })
     displayItemData = displayItemData + "_______________________\n合計: \n¥" + totalFeeInTax.toLocaleString();
+    displayItemData = displayItemData + "\n\nその他：" + customerComment;
 
     // itemの個数の配列
     const items = document.getElementsByName('counter');
@@ -80,7 +81,7 @@
         'entry.775530315': address,             // 住所
         'entry.171214477': mail,                // メールアドレス
         'entry.1315798513': phone,              // 電話番号
-        'entry.1407908955': totalFeeInTax,           // 合計料金
+        'entry.1407908955': totalFeeInTax,      // 合計料金
         'entry.12472245': items[0].value,       // ジョージのおやつHAPPY BOX
         'entry.1191119162': items[1].value,     // カヌレ
         'entry.1553621218': items[2].value,     // チーズケーキ
@@ -90,6 +91,7 @@
         'entry.494953515': items[6].value,      // 桜あんと生クリームのタルト
         'entry.1487205902': items[7].value,     // 生ガトーショコラ
         'entry.1658252972': items[8].value,     // レモンケーキ
+        'entry.1470527703': customerComment,    // その他
       },
       type: 'POST',
       datatype: 'xml',
