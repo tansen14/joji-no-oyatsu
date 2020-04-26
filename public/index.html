@@ -1,331 +1,348 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta char="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/stepper.js" charset="utf-8"></script>
-    <title>ジョージのおやつ 予約</title>
+  <meta char="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/stepper.js" charset="utf-8"></script>
+  <title>ジョージのおやつ 予約</title>
 </head>
 <body>
-    <div class="container">
-        <form id="form">
-          <small>v2.1.0</small>
-            <div class="logo">
-                <img alt="logo" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/624362_56176.png" class="itemImage">
-            </div>
-            <div class="form-group" id="items">
-              <div class="text-right mb-2">
-                <small>税込み価格(税抜き価格)で表示しています。</small>
-              </div>
-                <ul class="menu">
-                    <li class="item" id="menuItem1">
-                        <h3 class="itemName">
-                            ジョージのおやつHAPPY BOX
-                        </h3>
-                        <div class="itemPrice">￥<span>900</span><small>  (¥834)</small></div>
-                        <div class="itemImage">
-                            <img alt="ジョージのおやつHAPPY BOX" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/180236_132664.png" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter1">
-                            <input name="counter" type="number" value="0" class="counter counter1" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter1">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem2">
-                        <h3 class="itemName">
-                            カヌレ
-                        </h3>
-                        <div class="itemPrice">￥<span>220</span><small> (¥204)</small></div>
-                        <div class="itemImage">
-                            <img alt="カヌレ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/8E423901-D8BA-4A96-A31C-E8E0700BEF75_xlxpjk.jpg" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter2">
-                            <input name="counter" type="number" value="0" class="counter counter2" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter2">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem3">
-                        <h3 class="itemName">
-                            チーズケーキ<br>(1/8カット)
-                        </h3>
-                        <div class="itemPrice">￥<span>380</span><small> (¥352)</small></div>
-                        <div class="itemImage">
-                            <img alt="チーズケーキ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/986630_933113.jpg" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter3">
-                            <input name="counter" type="number" value="0" class="counter counter3" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter3">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem4">
-                        <h3 class="itemName">
-                            アップルパイ
-                        </h3>
-                        <div class="itemPrice">￥<span>220</span><small> (¥204)</small></div>
-                        <div class="itemImage">
-                            <img alt="アップルパイ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/182850_954647.png" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter4">
-                            <input name="counter" type="number" value="0" class="counter counter4" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter4">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem5">
-                        <h3 class="itemName">
-                            イチゴのタルト(1/8カット)
-                        </h3>
-                        <div class="itemPrice">￥<span>380</span><small> (¥352)</small></div>
-                        <div class="itemImage">
-                            <img alt="イチゴのタルト" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/IMG_5948_htra4x.jpg" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter5">
-                            <input name="counter" type="number" value="0" class="counter counter5" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter5">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem6">
-                        <h3 class="itemName">
-                            クッキーシュー
-                        </h3>
-                        <br />
-                        <div class="itemPrice">￥<span>170</span><small> (¥158)</small></div>
-                        <div class="itemImage">
-                            <img alt="クッキーシュー" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/394107_360938.jpg" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter6">
-                            <input name="counter" type="number" value="0" class="counter counter6" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter6">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem7">
-                        <h3 class="itemName">
-                            桜あんと生クリームのタルト(1/8カット)
-                        </h3>
-                        <div class="itemPrice">￥<span>380</span><small> (¥352)</small></div>
-                        <div class="itemImage">
-                            <img alt="桜あんと生クリームのタルト" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/123750_803192.jpeg" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter7">
-                            <input name="counter" type="number" value="0" class="counter counter7" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter7">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem8">
-                        <h3 class="itemName">
-                            生ガトーショコラ
-                        </h3>
-                        <br />
-                        <div class="itemPrice">￥<span>370</span><small> (¥343)</small></div>
-                        <div class="itemImage">
-                            <img alt="生ガトーショコラ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/69264_963784.png" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter8">
-                            <input name="counter" type="number" value="0" class="counter counter8" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter8">
-                        </div>
-                    </li>
-                    <li class="item" id="menuItem9">
-                        <h3 class="itemName">
-                            レモンケーキ
-                        </h3>
-                        <div class="itemPrice">￥<span>330</span><small> (¥306)</small></div>
-                        <div class="itemImage">
-                            <img alt="レモンケーキ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/944469_30738.jpeg" class="itemImage">
-                        </div>
-                        <div class="spinner_area">
-                            <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter9">
-                            <input name="counter" type="number" value="0" class="counter counter9" data-max="100" data-min="0" readonly>
-                            <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter9">
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <hr />
-            <div class="form-group row">
-                <label class="col-12 col-form-label">合計料金(税抜)</label>
-                <div class="col-6">
-                    <input id="totalFeeOutTax" class="form-control is-invalid" type="number"  min="500" placeholder="0" readonly required>
-                    <div class="invalid-feedback">(税抜)500円以上で購入してください</div>
-                </div>
-                <div class="col-6 text-left pt-2 pl-0">円</div>
-            </div>
-            <!--氏名-->
-            <div class="form-group row">
-                <label for="fullName" class="col-12 col-form-label">お名前<span class="text-danger">(必須)</span></label>
-                <div class="col-12">
-                    <input type="text" class="form-control" id="fullName" placeholder="お名前" required>
-                    <div class="invalid-feedback">入力してください</div>
-                </div>
-            </div>
-            <!--/氏名-->
-            <!--電話番号-->
-            <div class="form-group row">
-                <label for="inputPhone" class="col-12 col-form-label">電話番号<span class="text-danger">(必須)</span></label>
-                <div class="col-12">
-                    <input type="phone" class="form-control" id="inputPhone" placeholder="電話番号" required>
-                    <div class="invalid-feedback">入力してください</div>
-                </div>
-            </div>
-            <!--/電話番号-->
-            <!--メール-->
-            <div class="form-group row">
-                <label for="exampleInputEmail1" class="col-12 col-form-label">Eメールアドレス</label>
-                <div class="col-12">
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Eメールアドレス">
-                    <div class="invalid-feedback">入力してください</div>
-                </div>
-            </div>
-            <!--/メール-->
-            <!--住所-->
-            <div class="form-group row inputAddress01">
-                <div class="col-5">
-                    <label for="inputAddress01">郵便番号(7桁)<span class="text-danger">(必須)</span></label>
-                    <input type="text" name="zip01" maxlength="8" onkeyup="AjaxZip3.zip2addr(this,'','pref01','addr01');" class="form-control" id="inputAddress01" placeholder="0368096" required>
-                    <div class="invalid-feedback">入力してください</div>
-                </div>
-                <div class="col-0 d-none">
-                    <label for="inputAddress02">都道府県</label>
-                    <input type="text" name="pref01" id="inputAddress02" class="form-control" placeholder="青森県">
-                    <div class="invalid-feedback">入力してください</div>
-                </div>
-                <div class="col-7">
-                    <label for="inputAddress03">住所<span class="text-danger">(必須)</span></label>
-                    <input type="text" name="addr01" class="form-control" id="inputAddress03" placeholder="弘前市〇〇町1-1" required>
-                    <div class="invalid-feedback">入力してください</div>
-                </div>
-            </div>
-            <!--/住所-->
-            <!--日付-->
-            <div class="form-group row">
-                <label  class="col-12 col-form-label">お届け日(20 〜 23日)<span class="text-danger">(必須)</span></label>
-                <div class="col-12">
-                    <input id="date" type="date" name="dateN" class="form-control" min="2020-04-20" max="2020-04-23" required>
-                </div>
-            </div>
-            <!--/日付-->
-            <!--時間-->
-            <div class="form-group row">
-                <label class="col-12 col-form-label" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)<span class="text-danger">(必須)</span></label>
-                <div class="col-9">
-                    <select class="form-control" id="exampleFormControlSelect1" required>
-                        <!-- <option hidden>選択してください</option> -->
-                        <option value="11:00" selected>11:00 〜 11:30</option>
-                        <option value="11:30">11:30 〜 12:00</option>
-                        <option value="12:00">12:00 〜 12:30</option>
-                        <option value="12:30">12:30 〜 13:00</option>
-                        <option value="13:00">13:00 〜 13:30</option>
-                        <option value="13:30">13:30 〜 14:00</option>
-                        <option value="14:00">14:00 〜 14:30</option>
-                        <option value="14:30">14:30 〜 15:00</option>
-                        <option value="15:00">15:00 〜 15:30</option>
-                        <option value="15:30">15:30 〜 16:00</option>
-                        <option value="16:00">16:00 〜 16:30</option>
-                        <option value="16:30">16:30 〜 17:00</option>
-                        <option value="17:00">17:00 〜 17:30</option>
-                        <option value="17:30">17:30 〜 18:00</option>
-                    </select>
-                </div>
-                <div class="spinner-border spinner-border-sm mt-2" id="dateCheckLoading" role="status" >
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-            <!--/時間-->
-            <div class="form-group row">
-                <label  class="col-12 col-form-label">購入商品</label>
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th>#</th>
-                            <th scope="col">商品名</th>
-                            <th scope="col">数量</th>
-                            <th scope="col">小計</th>
-                        </tr>
-                    </thead>
-                    <!-- 購入する商品情報に沿ってtbody作成 -->
-                    <tbody id="itemListToBuy"></tbody>
-                </table>
-            </div>
-            <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">
-                <div class="col-12">予約する
-                    <div class="spinner-border spinner-border-sm mb-1" id="loading" role="status" style="display: none;">
-                        <span class="sr-only">Reserved...</span>
-                    </div>
-                </div>
-            </button>
-            <div class="alert alert-success alert-dismissible fade text-center mx-auto col-12" id="completealert" role="alert">
-                <strong>✔︎予約完了しました。</strong>
-                <div>
-                    <small>画面が閉じない場合は上のXボタンで閉じてください。</small>
-                </div>
-            </div>
-        </form>
-
-        <!-- モーダルの設定 -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">予約確認</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="戻る">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item flex-fill col-4 text-center">電話番号</li>
-                            <li class="list-group-item flex-fill col-8 " id="user_tel">08011112222</li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal mb-4">
-                            <li class="list-group-item flex-fill col-4 text-center">住所</li>
-                            <li class="list-group-item flex-fill col-8" id="user_address">弘前市○○町1-1</li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item flex-fill col-4 text-center">お届け日</li>
-                            <li class="list-group-item flex-fill col-8" id="delivery_date">4/13 (木)</li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal  mb-4">
-                            <li class="list-group-item flex-fill col-4 text-center">時間</li>
-                            <li class="list-group-item flex-fill col-8" id="delivery_time">11:00 〜 11:30</li>
-                        </ul>
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>#</th>
-                                    <th scope="col">商品名</th>
-                                    <th scope="col">数量</th>
-                                    <th scope="col">小計</th>
-                                </tr>
-                            </thead>
-                            <!-- 購入する商品情報に沿ってtbody作成 -->
-                            <tbody id="modal_itemlist"></tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
-                        <!-- <button type="button" id="submit-btn" class="btn btn-primary">確定する</!-->
-                        <button type="button" id="" class="btn btn-primary">確定する</button>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <form id="form">
+      <small>v3.0.0</small>
+      <div class="logo">
+        <img alt="logo" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/624362_56176.png" class="itemImage">
+      </div>
+      <div class="form-group" id="items">
+        <div class="text-right mb-2">
+          <small>税込み価格(税抜き価格)で表示しています。</small>
         </div>
+        <ul class="menu">
+          <li class="item" id="menuItem1">
+            <h3 class="itemName">
+              ジョージのおやつ<br>HAPPY BOX
+            </h3>
+            <div class="text-right mr-1">￥<span>900</span><small>  (¥834)</small></div>
+            <div class="itemImage">
+              <img alt="ジョージのおやつHAPPY BOX" src="http://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/313890_133560.png" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter1">
+              <input name="counter" type="number" value="0" class="counter counter1" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter1">
+            </div>
+          </li>
+          <li class="item" id="menuItem2">
+            <h3 class="itemName">
+              <span class="badge badge-warning">New</span>ピスタチオのモンブランタルト(1/8カット)
+            </h3>
+            <div class="text-right mr-1">￥<span>380</span><small> (¥352)</small></div>
+            <div class="itemImage">
+              <img alt="ピスタチオのモンブランタルト" src="http://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/635364_717597.jpeg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter9">
+              <input name="counter" type="number" value="0" class="counter counter9" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter9">
+            </div>
+          </li>
+          <li class="item" id="menuItem3">
+            <h3 class="itemName">
+              <span class="badge badge-warning">New</span>栗のモンブランタルト<br>(1/8カット)
+            </h3>
+            <div class="text-right mr-1">￥<span>380</span><small> (¥352)</small></div>
+            <div class="itemImage">
+              <img alt="栗のモンブランタルト" src="http://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/102742_376154.jpeg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter4">
+              <input name="counter" type="number" value="0" class="counter counter4" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter4">
+            </div>
+          </li>
+          <li class="item" id="menuItem4">
+            <h3 class="itemName">
+              桜あんと生クリームのタルト(1/8カット)
+            </h3>
+            <div class="text-right mr-1">￥<span>380</span><small> (¥352)</small></div>
+            <div class="itemImage">
+              <img alt="桜あんと生クリームのタルト" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/123750_803192.jpeg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter7">
+              <input name="counter" type="number" value="0" class="counter counter7" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter7">
+            </div>
+          </li>
+          <li class="item" id="menuItem5">
+            <h3 class="itemName">
+              カヌレ
+            </h3>
+            <div class="text-right mr-1">￥<span>220</span><small> (¥204)</small></div>
+            <div class="itemImage">
+              <img alt="カヌレ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/8E423901-D8BA-4A96-A31C-E8E0700BEF75_xlxpjk.jpg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter2">
+              <input name="counter" type="number" value="0" class="counter counter2" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter2">
+            </div>
+          </li>
+          <li class="item" id="menuItem6">
+            <h3 class="itemName">
+              チーズケーキ<br>(1/8カット)
+            </h3>
+            <div class="text-right mr-1">￥<span>380</span><small> (¥352)</small></div>
+            <div class="itemImage">
+              <img alt="チーズケーキ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/986630_933113.jpg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter3">
+              <input name="counter" type="number" value="0" class="counter counter3" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter3">
+            </div>
+          </li>
+          <li class="item" id="menuItem7">
+            <h3 class="itemName">
+              イチゴのタルト(1/8カット)
+            </h3>
+            <div class="text-right mr-1">￥<span>380</span><small> (¥352)</small></div>
+            <div class="itemImage">
+              <img alt="イチゴのタルト" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/IMG_5948_htra4x.jpg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter5">
+              <input name="counter" type="number" value="0" class="counter counter5" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter5">
+            </div>
+          </li>
+          <li class="item" id="menuItem8">
+            <h3 class="itemName">
+              クッキーシュー
+            </h3>
+            <br />
+            <div class="text-right mr-1">￥<span>170</span><small> (¥158)</small></div>
+            <div class="itemImage">
+              <img alt="クッキーシュー" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/394107_360938.jpg" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter6">
+              <input name="counter" type="number" value="0" class="counter counter6" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter6">
+            </div>
+          </li>
+          <li class="item" id="menuItem9">
+            <h3 class="itemName">
+              生ガトーショコラ
+            </h3>
+            <br />
+            <div class="text-right mr-1">￥<span>370</span><small> (¥343)</small></div>
+            <div class="itemImage">
+              <img alt="生ガトーショコラ" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/69264_963784.png" class="itemImage">
+            </div>
+            <div class="spinner_area">
+              <input type="button" value="－" class="btnspinner" data-cal="-1" data-target=".counter8">
+              <input name="counter" type="number" value="0" class="counter counter8" data-max="100" data-min="0" readonly>
+              <input type="button" value="＋" class="btnspinner" data-cal="1" data-target=".counter8">
+            </div>
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <div class="form-group row">
+        <label class="col-12 col-form-label">合計料金(税抜)</label>
+        <div class="col-6">
+          <input id="totalFeeOutTax" class="form-control is-invalid" type="number"  min="500" placeholder="0" readonly required>
+          <div class="invalid-feedback">(税抜)500円以上で購入してください</div>
+        </div>
+        <div class="col-6 text-left pt-2 pl-0">円</div>
+      </div>
+      <!--氏名-->
+      <div class="form-group row">
+        <label for="fullName" class="col-12 col-form-label">お名前<span class="text-danger">(必須)</span></label>
+        <div class="col-12">
+          <input type="text" class="form-control" id="fullName" placeholder="お名前" required>
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+      </div>
+      <!--/氏名-->
+      <!--電話番号-->
+      <div class="form-group row">
+        <label for="inputPhone" class="col-12 col-form-label">電話番号<span class="text-danger">(必須)</span></label>
+        <div class="col-12">
+          <input type="phone" class="form-control" id="inputPhone" placeholder="電話番号" required>
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+      </div>
+      <!--/電話番号-->
+      <!--メール-->
+      <div class="form-group row">
+        <label for="exampleInputEmail1" class="col-12 col-form-label">Eメールアドレス<span class="text-danger">(必須)</span></label>
+        <div class="col-12">
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Eメールアドレス" required>
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+      </div>
+      <!--/メール-->
+      <!--住所-->
+      <div class="form-group row inputAddress01">
+        <div class="col-7">
+          <label for="inputAddress01">郵便番号(7桁)<span class="text-danger">(必須)</span></label>
+          <input type="text" name="zip01" maxlength="8" onkeyup="AjaxZip3.zip2addr(this,'','pref01','addr01');" class="form-control" id="inputAddress01" placeholder="0368096" required>
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+        <div class="col-0 d-none">
+          <label for="inputAddress02">都道府県</label>
+          <input type="text" name="pref01" id="inputAddress02" class="form-control" placeholder="青森県">
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress03">住所<span class="text-danger">(必須)</span></label>
+          <input type="text" name="addr01" class="form-control" id="inputAddress03" placeholder="弘前市〇〇町1-1" required>
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+      </div>
+      <!--/住所-->
+      <!--日付-->
+      <div class="form-group row">
+        <label  class="col-12 col-form-label">お届け日[5/2(土) 〜 5/6(水)]<span class="text-danger">(必須)</span></label>
+        <div class="col-12">
+          <input id="date" type="date" name="dateN" class="form-control" min="2020-05-02" max="2020-05-06" value="2020-05-02" required>
+        </div>
+      </div>
+      <!--/日付-->
+      <!--時間-->
+      <div class="form-group row">
+        <label class="col-12 col-form-label" for="FormSelectTime">お届け時間帯(11:00 〜 18:00)<span class="text-danger">(必須)</span></label>
+        <div class="col-9">
+          <select class="form-control" id="exampleFormControlSelect1" required>
+            <!-- <option hidden>選択してください</option> -->
+            <option value="11:00" selected>11:00 〜 11:30</option>
+            <option value="11:30">11:30 〜 12:00</option>
+            <option value="12:00">12:00 〜 12:30</option>
+            <option value="12:30">12:30 〜 13:00</option>
+            <option value="13:00">13:00 〜 13:30</option>
+            <option value="13:30">13:30 〜 14:00</option>
+            <option value="14:00">14:00 〜 14:30</option>
+            <option value="14:30">14:30 〜 15:00</option>
+            <option value="15:00">15:00 〜 15:30</option>
+            <option value="15:30">15:30 〜 16:00</option>
+            <option value="16:00">16:00 〜 16:30</option>
+            <option value="16:30">16:30 〜 17:00</option>
+            <option value="17:00">17:00 〜 17:30</option>
+            <option value="17:30">17:30 〜 18:00</option>
+          </select>
+        </div>
+        <div class="spinner-border spinner-border-sm mt-2" id="dateCheckLoading" role="status" >
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <!--/時間-->
+      <!--その他-->
+      <div class="form-group row">
+        <label class="col-12 col-form-label" for="exampleFormControlTextarea1">その他・ご質問等ございましたらご記入ください。</label>
+        <small class="col-12">電話またはメールにて回答させていただきます。回答にお時間いただく場合がございます。予めご了承ください。</small>
+        <div class="col-12">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+        </div>
+      </div>
+      <!--/その他-->
+      <div class="alert alert-warning" role="alert"><strong>注意事項(購入前によくお読みください。)</strong><br>
+        ・配達可能範囲はの弘前市内または、弘前市近郊エリアです。<br>
+        ・現金のみ<br>
+        ・お支払いは受け渡し時にお願いいたします。<br>
+        ・細部のトッピングは写真と異なる場合がございます。<br>
+        ・アレルギー対応は行なっておりません。<br>
+        ・お客様に安心して召し上がっていただくために、アルコール除菌の徹底を心がけて配達しております。
+      </div>
+      <div class="form-group row">
+        <label  class="col-12 col-form-label">購入商品</label>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>#</th>
+              <th scope="col">商品名</th>
+              <th scope="col">数量</th>
+              <th scope="col">小計</th>
+            </tr>
+          </thead>
+          <!-- 購入する商品情報に沿ってtbody作成 -->
+          <tbody id="itemListToBuy"></tbody>
+        </table>
+      </div>
+      <button class="next-btn btn btn-info mx-auto d-block" id="submit-btn" type="submit">
+        <div class="col-12">予約する
+          <div class="spinner-border spinner-border-sm mb-1" id="loading" role="status" style="display: none;">
+            <span class="sr-only">Reserved...</span>
+          </div>
+        </div>
+      </button>
+      <div class="alert alert-success alert-dismissible fade text-center mx-auto col-12" id="completealert" role="alert">
+        <strong>✔︎予約完了しました。</strong>
+        <div>
+          <small>画面が閉じない場合は上のXボタンで閉じてください。</small>
+        </div>
+      </div>
+    </form>
+
+    <!-- モーダルの設定 -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">予約確認</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="戻る">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group list-group-horizontal mb-2">
+              <li class="list-group-item flex-fill col-4 text-center">電話番号</li>
+              <li class="list-group-item flex-fill col-8 " id="user_tel">08011112222</li>
+            </ul>
+            <ul class="list-group list-group-horizontal mb-4">
+              <li class="list-group-item flex-fill col-4 text-center">住所</li>
+              <li class="list-group-item flex-fill col-8" id="user_address">弘前市○○町1-1</li>
+            </ul>
+            <ul class="list-group list-group-horizontal mb-2">
+              <li class="list-group-item flex-fill col-4 text-center">お届け日</li>
+              <li class="list-group-item flex-fill col-8" id="delivery_date">4/13 (木)</li>
+            </ul>
+            <ul class="list-group list-group-horizontal  mb-4">
+              <li class="list-group-item flex-fill col-4 text-center">時間</li>
+              <li class="list-group-item flex-fill col-8" id="delivery_time">11:00 〜 11:30</li>
+            </ul>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>#</th>
+                  <th scope="col">商品名</th>
+                  <th scope="col">数量</th>
+                  <th scope="col">小計</th>
+                </tr>
+              </thead>
+              <!-- 購入する商品情報に沿ってtbody作成 -->
+              <tbody id="modal_itemlist"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+            <!-- <button type="button" id="submit-btn" class="btn btn-primary">確定する</!-->
+            <button type="button" id="" class="btn btn-primary">確定する</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="https://d.line-scdn.net/liff/1.0/sdk.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
-    <!-- 郵便番号から住所自動入力 -->
-    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
-    <script src="./js/Caluculate.js"></script>
-    <script src="./js/main.js"></script>
+  </div>
+  <script src="https://d.line-scdn.net/liff/1.0/sdk.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+  <!-- 郵便番号から住所自動入力 -->
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="js/form.js" charset="utf-8"></script>
+  <script src="./js/Caluculate.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>
