@@ -62,7 +62,7 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
           displayItemData = displayItemData + itemName[index] + "×" + qty + ": \n¥" + feeInTax.toLocaleString() + "\n";
         }
         totalFeeInTax = totalFeeInTax + feeInTax;
-    })
+    });
     displayItemData = displayItemData + "_______________________\n合計: \n¥" + totalFeeInTax.toLocaleString();
     displayItemData = displayItemData + "\n\nその他：" + customerComment;
 
