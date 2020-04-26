@@ -1,6 +1,10 @@
+/*商品情報*/
+const itemName = ["ジョージのおやつHAPPY BOX","ピスタチオのモンブランタルト","栗のモンブランタルト","桜あんと生クリームのタルト","カヌレ","チーズケーキ","イチゴのタルト","クッキーシュー","生ガトーショコラ"];
+const itemFeeInTax =      [900, 380, 380, 380, 220, 380, 380, 170, 370];
+const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
+
 'use strict';
 {
-
   let lineId = "userId";
   let displayName = "displayName";
 
@@ -41,7 +45,6 @@
     const address = $('#inputAddress03').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
-    const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
   	var totalFeeInTax = 0;
   	var displayItemData = "";
     const customerComment = $('#exampleFormControlTextarea1').val();
@@ -83,14 +86,14 @@
         'entry.1315798513': phone,              // 電話番号
         'entry.1407908955': totalFeeInTax,      // 合計料金
         'entry.12472245': items[0].value,       // ジョージのおやつHAPPY BOX
-        'entry.1191119162': items[1].value,     // カヌレ
-        'entry.1553621218': items[2].value,     // チーズケーキ
-        'entry.1263452350': items[3].value,     // アップルパイ
-        'entry.1119774577': items[4].value,     // イチゴのタルト
-        'entry.786743653': items[5].value,      // クッキーシュー
-        'entry.494953515': items[6].value,      // 桜あんと生クリームのタルト
-        'entry.1487205902': items[7].value,     // 生ガトーショコラ
-        'entry.1658252972': items[8].value,     // レモンケーキ
+        'entry.1191119162': items[1].value,     // ピスタチオのモンブランのタルト
+        'entry.1553621218': items[2].value,     // 栗のモンブランタルト
+        'entry.1263452350': items[3].value,     // カヌレ
+        'entry.1119774577': items[4].value,     // チーズケーキ
+        'entry.786743653': items[5].value,      // イチゴのタルト
+        'entry.494953515': items[6].value,      // クッキーシュー
+        'entry.1487205902': items[7].value,     // 桜あん
+        'entry.1658252972': items[8].value,     // 生ガトー
         'entry.1470527703': customerComment,    // その他
       },
       type: 'POST',
@@ -143,8 +146,6 @@
     // 初期化
     $("#exampleFormControlSelect1").empty();
     const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
-
-    // $("#exampleFormControlSelect1").append("<option hidden>選択してください</option>");
 
     for(let i = 0; i < base_time.length - 1; i++){
       let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';

@@ -1,8 +1,3 @@
-/*商品情報*/
-const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
-const itemFeeInTax =      [900, 220, 380, 220, 380, 170, 380, 370, 330];
-const itemFeeWithoutTax = [834, 204, 352, 204, 352, 158, 352, 343, 306];
-
 function accountCaluculate() {
 
 	const itemQty = document.getElementsByName('counter');
@@ -29,7 +24,6 @@ function getValue() {
 
 /* モーダル内容作成 */
 function createTable() {
-	const itemName = ["ジョージのおやつHAPPY BOX","カヌレ","チーズケーキ","アップルパイ","イチゴのタルト","クッキーシュー","桜あんと生クリームのタルト","生ガトーショコラ","レモンケーキ"];
 	var totalFeeInTax = 0;
 	var displayItemList = [];
 	$('input[name="counter"]').each(function(index) {
