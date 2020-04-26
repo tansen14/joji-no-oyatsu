@@ -8,6 +8,54 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
   let lineId = "userId";
   let displayName = "displayName";
 
+  // 初回API読み込み
+  date_check();
+  // "dateにイベントリスナーでonchange
+  $("#date").change(function() {
+    date_check();
+  });
+
+  function date_check() {
+    // インジケータ開始
+    $("#dateCheckLoading").css("display", "");
+    // 予約ボタンの停止
+    $('submit-btn').prop("disabled", true);
+
+    $("#exampleFormControlSelect1").prop("disabled", true);
+    // 初期化
+    $("#exampleFormControlSelect1").empty();
+    const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
+
+    for(let i = 0; i < base_time.length - 1; i++){
+      let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
+      $("#exampleFormControlSelect1").append(data_option);
+    }
+    $("#exampleFormControlSelect1 option").prop("disabled", false);
+
+    let date = $("#date").val().replace(/-/g, '');
+
+    // 裏に用意したGoogleFormにajax非同期通信で値を送信する
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=time_check&userId=' + lineId + '&date=' + date,
+      type: 'GET',
+      datatype: 'json'
+    })
+    .done(function(data) {
+      // インジケータ終了
+      $("#dateCheckLoading").css("display", "none");
+      let reserved_dates = data.ReservedDates;
+      reserved_dates.forEach(element => {
+        $('#exampleFormControlSelect1 option[value="' + element + '"]').text('✕既にご予約されています。').prop("disabled", true);
+      });
+      $("#exampleFormControlSelect1").prop("disabled", false);
+    })
+    .fail(function(data) {
+      $("#exampleFormControlSelect1").prop("disabled", false);
+      // 予約ボタンの開始
+      $('#submit-btn').prop("disabled", false);
+    });
+  }
+
   liff.init(function (data) {
     getProfile();
     // initializeApp(data);
@@ -49,12 +97,12 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
   	var displayItemData = "";
     const customerComment = $('#exampleFormControlTextarea1').val();
 
-	const times = $("#exampleFormControlSelect1 option:selected").text();
-	const fn = "お名前: " + fullName;
-	const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
-	const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
+    const times = $("#exampleFormControlSelect1 option:selected").text();
+    const fn = "お名前: " + fullName;
+    const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
+    const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
 
-	displayItemData =  "\n\n" + fn + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
+    displayItemData =  "\n\n" + fn + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
         var qty = $(this).val();
         var feeInTax = itemFeeInTax[index] * qty;
@@ -129,53 +177,6 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
     });
   });
 
-  // 初回API読み込み
-  date_check();
-  // "dateにイベントリスナーでonchange
-  $("#date").change(function() {
-    date_check();
-  });
-
-  function date_check() {
-    // インジケータ開始
-    $("#dateCheckLoading").css("display", "");
-    // 予約ボタンの停止
-    $('submit-btn').prop("disabled", true);
-
-    $("#exampleFormControlSelect1").prop("disabled", true);
-    // 初期化
-    $("#exampleFormControlSelect1").empty();
-    const base_time = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00'];
-
-    for(let i = 0; i < base_time.length - 1; i++){
-      let data_option = '<option value=' + base_time[i] + '>' + base_time[i] + ' 〜 ' + base_time[i+1] + '</option>';
-      $("#exampleFormControlSelect1").append(data_option);
-    }
-    $("#exampleFormControlSelect1 option").prop("disabled", false);
-
-    let date = $("#date").val().replace(/-/g, '');
-
-    // 裏に用意したGoogleFormにajax非同期通信で値を送信する
-    $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbzUlzd4eB6DCpcoksAmSif5d9APlVASv9wnoqmzEqSxtAtmT3px/exec?kind=time_check&userId=' + lineId + '&date=' + date,
-      type: 'GET',
-      datatype: 'json'
-    })
-    .done(function(data) {
-      // インジケータ終了
-      $("#dateCheckLoading").css("display", "none");
-      let reserved_dates = data.ReservedDates;
-      reserved_dates.forEach(element => {
-        $('#exampleFormControlSelect1 option[value="' + element + '"]').text('✕既にご予約されています。').prop("disabled", true);
-      });
-      $("#exampleFormControlSelect1").prop("disabled", false);
-    })
-    .fail(function(data) {
-      $("#exampleFormControlSelect1").prop("disabled", false);
-      // 予約ボタンの開始
-      $('#submit-btn').prop("disabled", false);
-    });
-  }
 
   // function reserved(lineId, displayItemData) {
   //   $.ajax({
