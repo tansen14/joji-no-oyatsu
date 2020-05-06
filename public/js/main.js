@@ -86,6 +86,7 @@
     const minute = $('#exampleFormControlSelect1').val().slice(3, 5);
     const mail = $('#exampleInputEmail1').val();
     const address = $('#inputAddress03').val();
+    const address1 = $('#inputAddress04').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
   	var totalFeeInTax = 0;
@@ -95,7 +96,7 @@
     const times = $("#exampleFormControlSelect1 option:selected").text();
     const fn = "お名前: " + fullName;
     const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
-    const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
+    const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address + address1;
 
     displayItemData =  "\n\n" + fn + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
@@ -124,7 +125,7 @@
         'entry.567938596_day': day,             // 日
         'entry.567938596_hour': hour,           // 時
         'entry.567938596_minute': minute,       // 分
-        'entry.775530315': address,             // 住所
+        'entry.775530315': address + address1,  // 住所
         'entry.171214477': mail,                // メールアドレス
         'entry.1315798513': phone,              // 電話番号
         'entry.1407908955': totalFeeInTax,      // 合計料金

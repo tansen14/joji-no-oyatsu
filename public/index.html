@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <form id="form">
-      <small>v3.0.0</small>
+      <small>v3.1.0</small>
       <div class="logo">
         <img alt="logo" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1566985/624362_56176.png" class="itemImage">
       </div>
@@ -199,18 +199,23 @@
           <input type="text" name="pref01" id="inputAddress02" class="form-control" placeholder="青森県">
           <div class="invalid-feedback">入力してください</div>
         </div>
-        <div class="col-12">
+        <div class="col-9">
           <label for="inputAddress03">住所<span class="text-danger">(必須)</span></label>
-          <input type="text" name="addr01" class="form-control" id="inputAddress03" placeholder="弘前市〇〇町1-1" required>
+          <input type="text" name="addr01" class="form-control" id="inputAddress03" placeholder="弘前市〇〇町" required>
+          <div class="invalid-feedback">入力してください</div>
+        </div>
+        <div class="col-9">
+          <label for="inputAddress04">それ以降の住所<span class="text-danger">(必須)</span></label>
+          <input type="text" name="addr02" class="form-control" id="inputAddress04" placeholder="1-2-30 〇〇マンション 101号" required>
           <div class="invalid-feedback">入力してください</div>
         </div>
       </div>
       <!--/住所-->
       <!--日付-->
       <div class="form-group row">
-        <label  class="col-12 col-form-label">お届け日[5/2(土) 〜 5/6(水)]<span class="text-danger">(必須)</span></label>
+        <label  class="col-12 col-form-label">お届け日　5/11(月) 〜 5/13(水)<span class="text-danger">(必須)</span></label>
         <div class="col-12">
-          <input id="date" type="date" name="dateN" class="form-control" min="2020-05-02" max="2020-05-06" value="2020-05-02" required>
+          <input id="date" type="date" name="dateN" class="form-control" min="2020-05-11" max="2020-05-13" value="2020-05-11" required>
         </div>
       </div>
       <!--/日付-->
