@@ -1,3 +1,9 @@
+/*商品情報*/
+const itemName = ["ジョージのおやつHAPPY BOX","ピスタチオのモンブランタルト","栗のモンブランタルト","桜あんと生クリームのタルト","カヌレ","チーズケーキ","イチゴのタルト","クッキーシュー","生ガトーショコラ"];
+const itemFeeInTax =      [900, 380, 380, 380, 220, 380, 380, 170, 370];
+const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
+
+
 function accountCaluculate() {
 
 	const itemQty = document.getElementsByName('counter');

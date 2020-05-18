@@ -1,8 +1,3 @@
-/*商品情報*/
-const itemName = ["ジョージのおやつHAPPY BOX","ピスタチオのモンブランタルト","栗のモンブランタルト","桜あんと生クリームのタルト","カヌレ","チーズケーキ","イチゴのタルト","クッキーシュー","生ガトーショコラ"];
-const itemFeeInTax =      [900, 380, 380, 380, 220, 380, 380, 170, 370];
-const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
-
 'use strict';
 {
   let lineId = "userId";
@@ -91,6 +86,7 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
     const minute = $('#exampleFormControlSelect1').val().slice(3, 5);
     const mail = $('#exampleInputEmail1').val();
     const address = $('#inputAddress03').val();
+    const address1 = $('#inputAddress04').val();
     const phone = $('#inputPhone').val();
     const sumPrice = $('#totalFeeOutTax').val();
   	var totalFeeInTax = 0;
@@ -100,7 +96,7 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
     const times = $("#exampleFormControlSelect1 option:selected").text();
     const fn = "お名前: " + fullName;
     const ymd = "お届け日時:" + year + "年" + month + "月" + day +"日" + times;
-    const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address
+    const phoneaddress = "電話番号:" + phone + "\n\n住所:" + address + address1;
 
     displayItemData =  "\n\n" + fn + "\n\n" +phoneaddress + "\n\n" + ymd + "\n\n" + "注文内容\n_______________________\n";
     $('input[name="counter"]').each(function(index) {
@@ -129,7 +125,7 @@ const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
         'entry.567938596_day': day,             // 日
         'entry.567938596_hour': hour,           // 時
         'entry.567938596_minute': minute,       // 分
-        'entry.775530315': address,             // 住所
+        'entry.775530315': address + address1,  // 住所
         'entry.171214477': mail,                // メールアドレス
         'entry.1315798513': phone,              // 電話番号
         'entry.1407908955': totalFeeInTax,      // 合計料金
