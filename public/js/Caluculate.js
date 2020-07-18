@@ -1,48 +1,26 @@
-/*商品情報*/
-const itemName = ["ジョージのおやつHAPPY BOX","ピスタチオのモンブランタルト","栗のモンブランタルト","桜あんと生クリームのタルト","カヌレ","チーズケーキ","イチゴのタルト","クッキーシュー","生ガトーショコラ"];
-const itemFeeInTax =      [900, 380, 380, 380, 220, 380, 380, 170, 370];
-const itemFeeWithoutTax = [834, 352, 352, 352, 204, 352, 352, 158, 343];
-
-
-function accountCaluculate() {
-
-	const itemQty = document.getElementsByName('counter');
-	const totalFee = getValue(itemFeeInTax,itemQty);
-
-	document.getElementById('totalFeeOutTax').value = itemName[0];
-
-	if (totalFee > 500) {
-		document.getElementById('totalFeeOutTax').value = "(税込)合計：¥" + totalFee;
-	} else {
-		document.getElementById('totalFeeOutTax').value = "500円以上購入してください。　現在：(税抜)¥" + totalFee;
-	}
-}
-
-function getValue() {
-	var totalValue = 0;
-	$('input[name="counter"]').each(function(index) {
-		var qty = $(this).val();
-		var feeWithoutTax = itemFeeWithoutTax[index] * qty;
-		totalValue = totalValue  + feeWithoutTax;
-	})
-	return totalValue;
-}
-
 /* モーダル内容作成 */
 function createTable() {
 	var totalFeeInTax = 0;
 	var displayItemList = [];
 	$('input[name="counter"]').each(function(index) {
 		var qty = $(this).val();
-		var feeInTax = itemFeeInTax[index] * qty
+		var feeInTax = itemFeeList[index] * qty
 		if (feeInTax > 0) {
-			displayItemList.push([itemName[index], qty, feeInTax.toLocaleString()]);
+			displayItemList.push([itemNameList[index], qty, feeInTax.toLocaleString()]);
 		}
 		totalFeeInTax = totalFeeInTax + feeInTax;
 	})
 
 	// tbodyの作成
 	createTbody(displayItemList, totalFeeInTax.toLocaleString());
+
+	// 合計の入力
+	$('#totalFeeOutTax').val(totalFeeInTax);
+	if (totalFeeInTax >= 500) {
+		$('#totalFeeOutTax').removeClass("is-invalid").addClass("is-valid");
+	} else {
+		$('#totalFeeOutTax').removeClass("is-valid").addClass("is-invalid");
+	}
 };
 
 function createTbody(displayItemList, totalFeeInTax) {
@@ -102,14 +80,5 @@ function sum_show(){
 	// 初期化
 	clearTable(tbody);
 
-	const totalFee = getValue();
-	const totalFeeInTax = "¥" + totalFee.toLocaleString();
-	$('#totalFeeOutTax').val(getValue());
-	if ( totalFee >= 500) {
-		$('#totalFeeOutTax').removeClass("is-invalid").addClass("is-valid");
-		createTable();
-	} else {
-		$('#totalFeeOutTax').removeClass("is-valid").addClass("is-invalid");
-		$('#totalFeeInTax').val("");
-	}
+	createTable();
 }
